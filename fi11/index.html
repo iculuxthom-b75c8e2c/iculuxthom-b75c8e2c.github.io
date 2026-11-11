@@ -1,0 +1,2119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fi11.cn含羞草中转站 - 实验影像与独立动画聚合</title>
+  <meta name="description" content="fi11.cn含羞草中转站聚合实验影像、独立动画与先锋短片，提供新片动态、创作者访谈、展映排期与观看指南，适合影像研究者与深度影迷。">
+  <meta name="keywords" content="fi11.cn含羞草中转站">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232b6e4f'/%3E%3Cpath d='M9 20c3-6 11-6 14 0' stroke='%23f2e8d5' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='12' r='2.6' fill='%23f2e8d5'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand: #2b6e4f;
+      --brand-light: #3d8a66;
+      --brand-dark: #1e4f38;
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --surface-alt: #f0ede5;
+      --text-primary: #1a2b22;
+      --text-secondary: #4d6257;
+      --text-muted: #7e9187;
+      --border: #d9d4c8;
+      --border-light: #e8e3d8;
+      --radius-card: 14px;
+      --radius-btn: 8px;
+      --radius-tag: 20px;
+      --radius-banner: 10px;
+      --shadow-default: 0 2px 8px rgba(26, 43, 34, 0.06);
+      --shadow-hover: 0 6px 20px rgba(26, 43, 34, 0.12);
+      --font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+      --sticky-offset: 108px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; object-fit: cover; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      background: var(--brand-dark);
+      color: #e8e3d8;
+      font-size: 13px;
+      padding: 7px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .announce-bar .container {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .announce-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .announce-item .date {
+      background: rgba(255,255,255,0.15);
+      padding: 1px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .announce-item .tag {
+      color: #c5d6cc;
+      font-size: 12px;
+    }
+    .announce-brand {
+      font-weight: 600;
+      color: #f2e8d5;
+      letter-spacing: 0.3px;
+      margin-right: 4px;
+    }
+
+    /* 吸顶页头 */
+    .site-header {
+      background: rgba(247, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 33px;
+      z-index: 99;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .brand-text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .main-nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible {
+      background: var(--surface-alt);
+      color: var(--brand-dark);
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+      align-items: center;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      padding: 0 4px 0 12px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus-within {
+      border-color: var(--brand);
+    }
+    .search-box input {
+      border: none;
+      background: none;
+      padding: 8px 6px;
+      font-size: 14px;
+      width: 140px;
+      outline: none;
+      color: var(--text-primary);
+    }
+    .search-box input::placeholder { color: var(--text-muted); }
+    .search-box button {
+      padding: 6px 10px;
+      color: var(--brand);
+      font-size: 14px;
+      border-radius: 6px;
+    }
+    .search-box button:hover { background: var(--surface-alt); }
+    .menu-toggle {
+      display: none;
+      padding: 8px 10px;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text-secondary);
+      border-radius: var(--radius-btn);
+    }
+    .menu-toggle:hover { background: var(--surface-alt); }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      padding: 48px 0 40px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #eaf3ed 0%, #f7f5f0 40%, #f0ede5 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(43,110,79,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(61,138,102,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .hero-desc strong {
+      color: var(--brand-dark);
+      font-weight: 600;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1.5px solid var(--brand);
+      color: var(--brand-dark);
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(43,110,79,0.08); }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-visual svg { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* 三栏布局 */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 170px 1fr 250px;
+      gap: 28px;
+      padding: 36px 0 48px;
+      align-items: start;
+    }
+
+    /* 左频道索引 */
+    .channel-nav {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 16px 0;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+    }
+    .channel-nav h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      padding: 0 16px 10px;
+      font-weight: 600;
+    }
+    .channel-nav a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      line-height: 1.4;
+    }
+    .channel-nav a:hover, .channel-nav a:focus-visible {
+      background: var(--surface-alt);
+      color: var(--brand-dark);
+    }
+    .channel-nav a.active {
+      border-left-color: var(--brand);
+      color: var(--brand-dark);
+      font-weight: 600;
+      background: rgba(43,110,79,0.06);
+    }
+
+    /* 中主内容 */
+    .main-content { min-width: 0; }
+
+    /* 右辅助栏 */
+    .sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 16px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+    }
+    .sidebar-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidebar-card h3 .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand);
+      flex-shrink: 0;
+    }
+    .hot-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--border-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .hot-list li:last-child { border-bottom: none; }
+    .hot-list .rank {
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-muted);
+      min-width: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+    .hot-list .rank.top { color: var(--brand); }
+    .hot-list .hot-title {
+      flex: 1;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+    .hot-list .hot-title:hover { color: var(--brand-dark); }
+    .hot-list .hot-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .update-stream li {
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--border-light);
+      font-size: 13px;
+    }
+    .update-stream li:last-child { border-bottom: none; }
+    .update-stream .u-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1px;
+    }
+    .update-stream .u-title {
+      color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+    .update-stream .u-title:hover { color: var(--brand-dark); }
+
+    /* 通用板块 */
+    .section {
+      margin-bottom: 44px;
+    }
+    .section:last-child { margin-bottom: 0; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      letter-spacing: -0.3px;
+    }
+    .section-head .sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .section-head .more {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--brand);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .section-head .more:hover { text-decoration: underline; }
+
+    /* 领域概览 */
+    .overview-text {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-size: 14.5px;
+    }
+    .overview-text p + p { margin-top: 12px; }
+    .overview-text strong { color: var(--brand-dark); }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .content-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--surface-alt);
+    }
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .content-card:hover .card-thumb img { transform: scale(1.03); }
+    .card-type {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(30, 79, 56, 0.85);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      backdrop-filter: blur(4px);
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-body h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .card-tags span {
+      font-size: 11px;
+      color: var(--brand);
+      background: rgba(43,110,79,0.08);
+      padding: 1px 8px;
+      border-radius: var(--radius-tag);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--border-light);
+    }
+    .card-meta .heat { color: var(--brand); font-weight: 600; }
+
+    /* 最新动态列表 */
+    .news-list {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 4px 24px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+    }
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--border-light);
+      align-items: baseline;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      min-width: 70px;
+      font-variant-numeric: tabular-nums;
+    }
+    .news-content { flex: 1; }
+    .news-content h4 {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+    .news-content p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .news-tag {
+      font-size: 11px;
+      color: var(--brand);
+      background: rgba(43,110,79,0.08);
+      padding: 1px 8px;
+      border-radius: var(--radius-tag);
+      white-space: nowrap;
+      align-self: center;
+    }
+
+    /* 分类入口 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .cat-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 16px 14px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: block;
+    }
+    .cat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--brand-light);
+    }
+    .cat-card .cat-icon {
+      font-size: 22px;
+      margin-bottom: 4px;
+      display: block;
+      line-height: 1;
+    }
+    .cat-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .cat-card p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+    }
+    .deep-dive h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin: 24px 0 10px;
+      letter-spacing: -0.2px;
+    }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .deep-dive ul {
+      margin: 8px 0 14px 20px;
+      list-style: disc;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.8;
+    }
+    .deep-dive li { margin-bottom: 4px; }
+    .deep-dive strong { color: var(--brand-dark); }
+    .deep-dive blockquote {
+      background: var(--surface-alt);
+      border-left: 3px solid var(--brand);
+      padding: 12px 18px;
+      margin: 16px 0;
+      border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .deep-dive blockquote p { margin-bottom: 4px; }
+    .deep-dive blockquote p:last-child { margin-bottom: 0; }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+    .guide-step {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 20px 18px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+    .guide-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      width: 28px;
+      height: 28px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(43,110,79,0.3);
+    }
+    .guide-step h4 {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin: 6px 0 6px;
+    }
+    .guide-step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ */
+    .faq-list details {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-light);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+    .faq-list details summary {
+      padding: 14px 20px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .faq-list details summary::-webkit-details-marker { display: none; }
+    .faq-list details summary::after {
+      content: '+';
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    .faq-list details[open] summary::after { content: '−'; }
+    .faq-list details summary:hover { background: var(--surface-alt); }
+    .faq-list details[open] summary { border-bottom: 1px solid var(--border-light); }
+    .faq-answer {
+      padding: 14px 20px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .faq-answer p + p { margin-top: 8px; }
+
+    /* 用户评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      transition: box-shadow 0.2s;
+    }
+    .comment-card:hover { box-shadow: var(--shadow-hover); }
+    .comment-card .c-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .comment-card .c-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      flex-shrink: 0;
+    }
+    .comment-card .c-name {
+      font-weight: 600;
+      font-size: 12.5px;
+      color: var(--text-primary);
+    }
+    .comment-card .c-text { margin-bottom: 4px; }
+    .comment-card .c-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    /* 相关资讯 */
+    .news-brief-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .brief-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .brief-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .brief-card .b-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .brief-card h4 {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .brief-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud a {
+      display: inline-block;
+      padding: 5px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-tag);
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .tag-cloud a:hover {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    /* 补充板块：创作者证言 */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .testimonial-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-default);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--brand-light);
+    }
+    .testimonial-card blockquote {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      font-style: normal;
+    }
+    .testimonial-card .t-author {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* 投稿栏目 */
+    .submit-banner {
+      background: linear-gradient(120deg, var(--brand-dark), var(--brand));
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-default);
+    }
+    .submit-banner h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .submit-banner p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .submit-banner .btn-white {
+      background: #fff;
+      color: var(--brand-dark);
+      padding: 10px 26px;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .submit-banner .btn-white:hover {
+      background: var(--surface-alt);
+      transform: translateY(-1px);
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--brand-dark);
+      color: #c5d6cc;
+      padding: 48px 0 0;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+    .footer-brand .f-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .footer-brand .f-logo svg {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+    .footer-brand .f-logo span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f2e8d5;
+    }
+    .footer-desc {
+      color: #a3b8ab;
+      margin-bottom: 12px;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e8e3d8;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-col a {
+      display: block;
+      color: #a3b8ab;
+      padding: 3px 0;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: #f2e8d5; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #8aa396;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 14px rgba(43,110,79,0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s, visibility 0.25s, transform 0.2s;
+      z-index: 90;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      background: var(--brand-dark);
+    }
+
+    /* 移动端菜单遮罩 */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 98;
+    }
+    .menu-overlay.active { display: block; }
+
+    /* 搜索无结果提示 */
+    .search-empty {
+      display: none;
+      padding: 18px 20px;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .search-empty.visible { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1200px) {
+      .main-layout { grid-template-columns: 155px 1fr 230px; gap: 22px; }
+    }
+    @media (max-width: 1024px) {
+      .main-layout { grid-template-columns: 1fr 240px; }
+      .channel-nav {
+        position: static;
+        grid-column: 1 / -1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 10px 12px;
+        border-radius: var(--radius-card);
+      }
+      .channel-nav h3 { display: none; }
+      .channel-nav a {
+        border-left: none;
+        border-radius: var(--radius-btn);
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+      .channel-nav a.active {
+        border-left: none;
+        background: var(--brand);
+        color: #fff;
+      }
+      .channel-nav a.active:hover { background: var(--brand-dark); }
+      .hero-content { grid-template-columns: 1fr; gap: 24px; }
+      .hero-visual { display: none; }
+      .hero h1 { font-size: 34px; }
+      .cat-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 740px) {
+      .announce-bar .container { gap: 10px; font-size: 12px; }
+      .header-inner { gap: 12px; padding: 10px 0; }
+      .main-nav { display: none; }
+      .menu-toggle { display: block; }
+      .search-box input { width: 100px; }
+      .main-layout { grid-template-columns: 1fr; gap: 20px; padding: 24px 0 36px; }
+      .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .sidebar-card:last-child { grid-column: 1 / -1; }
+      .hero { padding: 32px 0 28px; }
+      .hero h1 { font-size: 28px; }
+      .hero-desc { font-size: 14.5px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-desc { max-width: none; }
+      .comment-grid { grid-template-columns: 1fr; }
+      .news-brief-list { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .deep-dive { padding: 20px 18px; }
+      .section-head h2 { font-size: 19px; }
+      .submit-banner { padding: 20px 22px; }
+      .submit-banner h3 { font-size: 17px; }
+      .back-to-top { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 18px; }
+      .overview-text { padding: 18px 20px; }
+      .news-list { padding: 4px 16px; }
+      .news-item { flex-wrap: wrap; gap: 6px 12px; }
+      .news-date { min-width: auto; }
+    }
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 24px; }
+      .sidebar { grid-template-columns: 1fr; }
+      .cat-grid { grid-template-columns: 1fr 1fr; }
+      .brand-text { font-size: 17px; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" id="announce-bar">
+    <div class="container">
+      <span class="announce-brand">fi11.cn含羞草中转站</span>
+      <div class="announce-item">
+        <span class="date">11月7日</span>
+        <span>《雾中信号》第四集上线</span>
+      </div>
+      <div class="announce-item">
+        <span class="date">11月6日</span>
+        <span>独立动画《苔藓与钢铁》新增导演评论音轨</span>
+      </div>
+      <div class="announce-item">
+        <span class="tag">本周新增</span>
+        <span>23 部实验短片</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="/#" class="brand" aria-label="fi11.cn含羞草中转站 首页">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="18" cy="18" r="16" fill="#2b6e4f"/>
+          <path d="M10 22c3.5-7 12.5-7 16 0" stroke="#f2e8d5" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="18" cy="13" r="3" fill="#f2e8d5"/>
+          <circle cx="11" cy="11" r="1.5" fill="#a3b8ab"/>
+          <circle cx="25" cy="11" r="1.5" fill="#a3b8ab"/>
+        </svg>
+        <span class="brand-text">fi11.cn含羞草中转站<small>实验影像 · 独立动画 · 先锋短片</small></span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选推荐</a>
+        <a href="/#latest">最新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#submit">投稿</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box">
+          <input type="search" id="search-input" placeholder="搜索条目、导演、标签…" aria-label="搜索站内内容">
+          <button type="button" id="search-btn" aria-label="搜索">🔍</button>
+        </div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>fi11.cn含羞草中转站</h1>
+        <p class="hero-desc">
+          汇集<strong>实验影像、独立动画、先锋短片</strong>与影像艺术现场记录。从《雾中信号》的系列悬疑实验到《苔藓与钢铁》的手绘赛璐珞，覆盖展映排期、导演访谈、技术参数与观看路径。适合影像研究者、深度影迷与创作人按图索骥。
+        </p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn-primary">浏览精选 →</a>
+          <a href="/#latest" class="btn-ghost">查看今日更新</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="30" width="300" height="200" rx="18" fill="#e8e3d8" opacity="0.6"/>
+          <rect x="40" y="50" width="260" height="160" rx="12" fill="#2b6e4f" opacity="0.12"/>
+          <circle cx="170" cy="110" r="48" fill="#3d8a66" opacity="0.18"/>
+          <circle cx="170" cy="110" r="28" fill="#2b6e4f" opacity="0.28"/>
+          <path d="M100 210c20-50 120-50 140 0" stroke="#2b6e4f" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+          <circle cx="140" cy="90" r="6" fill="#2b6e4f" opacity="0.5"/>
+          <circle cx="200" cy="90" r="6" fill="#2b6e4f" opacity="0.5"/>
+          <rect x="140" y="230" width="60" height="4" rx="2" fill="#2b6e4f" opacity="0.3"/>
+          <rect x="130" y="240" width="80" height="4" rx="2" fill="#2b6e4f" opacity="0.2"/>
+          <rect x="150" y="250" width="40" height="4" rx="2" fill="#2b6e4f" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主布局：三栏门户 -->
+  <div class="container main-layout">
+
+    <!-- 左频道索引 -->
+    <nav class="channel-nav" aria-label="频道索引">
+      <h3>频道</h3>
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#latest">最新动态</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#related">相关推荐</a>
+      <a href="/#testimonials">创作者证言</a>
+      <a href="/#submit">投稿与交流</a>
+    </nav>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+
+      <!-- 板块1：领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-head">
+          <h2>实验影像与独立动画的当前切片</h2>
+          <span class="sub">2026年11月 · 内容方向</span>
+        </div>
+        <div class="overview-text">
+          <p>
+            实验影像在2026年秋季进入一轮密集展映期。10月中旬至11月初，北京、上海、成都三地累计有14场独立动画与实验短片专场放映，其中<strong>《雾中信号》系列</strong>以每周一集的更新节奏占据讨论中心，导演林临在11月3日的线上问答中透露第四集采用16mm胶片与4K数字中间片的混合制作流程，单集调色耗时三周。另一条线索来自手绘动画领域，<strong>《苔藓与钢铁》</strong>于10月28日上线导演评论音轨，披露了赛璐珞逐帧拍摄时因静电导致的17处废片，这些细节在独立动画社群中被反复引用。
+          </p>
+          <p>
+            同期值得留意的还有<strong>“边缘共振”影像双周</strong>（10月25日—11月7日），展出来自9个国家的31部短片，其中日本导演石桥瑞穗的《水母记》用8mm胶片拍摄水母缸内反射，单帧最长曝光达到90秒。国内创作者方面，<strong>《羊水之外》</strong>的导演陈迟在11月1日公布了新作计划《回声定位》，预计2027年春季完成，目前释出的测试片段包含4分钟的水下录音与手绘叠加。这些条目分散在不同平台与展映空间，观看渠道和版本差异较大，中转站的作用是标记清楚每个条目的介质、时长、字幕状态与可获取方式。
+          </p>
+        </div>
+      </section>
+
+      <!-- 板块2：精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2>精选推荐：值得投入时间的六个条目</h2>
+          <span class="more" href="/#featured">全部 →</span>
+        </div>
+        <div class="card-grid" id="featured-grid">
+          <article class="content-card" data-search="雾中信号 实验剧集 林临 胶片">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/wuzhongxinhao1/400/300" alt="《雾中信号》第四集胶片颗粒画面" width="400" height="300" loading="lazy">
+              <span class="card-type">实验剧集</span>
+            </div>
+            <div class="card-body">
+              <h3>《雾中信号》第四集</h3>
+              <div class="card-tags">
+                <span>16mm胶片</span><span>悬疑实验</span><span>林临</span>
+              </div>
+              <p class="card-desc">林临用胶片与数字中间片混合流程，把第四集做成一次介质实验。调色耗时三周，画面颗粒与数字锐度在夜景段落里交替出现。</p>
+              <div class="card-meta">
+                <span>更新于 11月7日</span>
+                <span class="heat">热度 9.2</span>
+              </div>
+            </div>
+          </article>
+          <article class="content-card" data-search="苔藓与钢铁 手绘动画 赛璐珞 导演评论">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/taixianyugangtie2/400/300" alt="《苔藓与钢铁》手绘赛璐珞场景" width="400" height="300" loading="lazy">
+              <span class="card-type">独立动画</span>
+            </div>
+            <div class="card-body">
+              <h3>《苔藓与钢铁》导演评论音轨</h3>
+              <div class="card-tags">
+                <span>赛璐珞</span><span>逐帧</span><span>静电废片</span>
+              </div>
+              <p class="card-desc">导演在音轨里逐段说明17处废片的成因，包括赛璐珞片基在干燥季节产生的静电吸附问题。对做逐帧动画的人是一份现场笔记。</p>
+              <div class="card-meta">
+                <span>上线于 10月28日</span>
+                <span class="heat">评分 8.7</span>
+              </div>
+            </div>
+          </article>
+          <article class="content-card" data-search="水母记 石桥瑞穗 8mm 边缘共振">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/shuimuji3/400/300" alt="《水母记》8mm胶片中的水母缸反射" width="400" height="300" loading="lazy">
+              <span class="card-type">实验短片</span>
+            </div>
+            <div class="card-body">
+              <h3>《水母记》石桥瑞穗</h3>
+              <div class="card-tags">
+                <span>8mm胶片</span><span>长曝光</span><span>边缘共振</span>
+              </div>
+              <p class="card-desc">单帧最长曝光90秒，水母在胶片上留下的运动轨迹与缸壁反射叠合。日本导演石桥瑞穗在映后谈里提到，整片仅用自然光。</p>
+              <div class="card-meta">
+                <span>展映于 11月2日</span>
+                <span class="heat">热度 8.9</span>
+              </div>
+            </div>
+          </article>
+          <article class="content-card" data-search="羊水之外 陈迟 水下录音 手绘">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/yangshuizhiwai4/400/300" alt="《羊水之外》水下与手绘叠加画面" width="400" height="300" loading="lazy">
+              <span class="card-type">实验短片</span>
+            </div>
+            <div class="card-body">
+              <h3>《羊水之外》</h3>
+              <div class="card-tags">
+                <span>水下手绘</span><span>陈迟</span><span>声音设计</span>
+              </div>
+              <p class="card-desc">陈迟把水下录音与手绘动画叠合，声音密度高于画面。11月1日公布新作《回声定位》计划，目前释出4分钟测试片段。</p>
+              <div class="card-meta">
+                <span>更新于 11月1日</span>
+                <span class="heat">热度 8.1</span>
+              </div>
+            </div>
+          </article>
+          <article class="content-card" data-search="边缘共振 影像双周 展映 九个国家的短片">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/bianyuan5/400/300" alt="“边缘共振”影像双周展映现场" width="400" height="300" loading="lazy">
+              <span class="card-type">展映活动</span>
+            </div>
+            <div class="card-body">
+              <h3>“边缘共振”影像双周</h3>
+              <div class="card-tags">
+                <span>31部短片</span><span>9国</span><span>10月25日—11月7日</span>
+              </div>
+              <p class="card-desc">双周展映覆盖9个国家的31部短片，排片表里实验短片占六成。最后两天集中放映长于25分钟的中长片，与前半程的短节目形成节奏差。</p>
+              <div class="card-meta">
+                <span>结束于 11月7日</span>
+                <span class="heat">热度 7.6</span>
+              </div>
+            </div>
+          </article>
+          <article class="content-card" data-search="回声定位 陈迟 新作计划 水下录音">
+            <div class="card-thumb">
+              <img src="https://picsum.photos/seed/huishengdingwei6/400/300" alt="《回声定位》测试片段中的水下声波图形" width="400" height="300" loading="lazy">
+              <span class="card-type">制作中</span>
+            </div>
+            <div class="card-body">
+              <h3>《回声定位》测试片段</h3>
+              <div class="card-tags">
+                <span>2027春季</span><span>测试片段</span><span>水下录音</span>
+              </div>
+              <p class="card-desc">4分钟测试片段以水下录音为骨架，手绘层只覆盖了约30%。陈迟在11月1日的动态里说明，剩余部分需要等录音素材补录完成。</p>
+              <div class="card-meta">
+                <span>公布于 11月1日</span>
+                <span class="heat">期待值 8.4</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 板块3：最新更新 / 动态 -->
+      <section class="section" id="latest">
+        <div class="section-head">
+          <h2>最新更新与展映动态</h2>
+          <span class="sub">11月1日—11月7日</span>
+        </div>
+        <div class="news-list" id="latest-list">
+          <div class="news-item">
+            <span class="news-date">11月7日</span>
+            <div class="news-content">
+              <h4>《雾中信号》第四集上线，胶片与数字中间片混用</h4>
+              <p>第四集正片时长41分钟，片尾字幕列出16mm扫描与4K调色两套流程。导演林临在映后提到夜景段落的颗粒是实拍保留，不是后期叠加。</p>
+            </div>
+            <span class="news-tag">实验剧集</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月6日</span>
+            <div class="news-content">
+              <h4>“边缘共振”双周闭幕，最后一日排片集中中长片</h4>
+              <p>11月7日闭幕日放映了5部25分钟以上的中长片，其中《水母记》加映一场。主办方在散场时发放了纸质排片勘误表，更正两处时间。</p>
+            </div>
+            <span class="news-tag">展映</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月5日</span>
+            <div class="news-content">
+              <h4>《苔藓与钢铁》评论音轨上线第二周，逐帧笔记被整理成文档</h4>
+              <p>有观众把导演在音轨里提到的17处废片按时间码整理成共享文档，文档在独立动画社群里被转发了约400次，补充了静电问题的具体温湿度条件。</p>
+            </div>
+            <span class="news-tag">独立动画</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月4日</span>
+            <div class="news-content">
+              <h4>《羊水之外》导演陈迟确认《回声定位》2027年春季完成</h4>
+              <p>陈迟在个人动态里写，剩余部分需要补录三段水下录音，地点选在千岛湖。测试片段目前可在展映现场观看，暂无线上版本。</p>
+            </div>
+            <span class="news-tag">制作中</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月3日</span>
+            <div class="news-content">
+              <h4>林临线上问答：第四集调色耗时三周，夜景颗粒为实拍</h4>
+              <p>问答持续了72分钟，林临回答了关于胶片扫描分辨率、数字中间片色域和夜景布光的问题。有观众问第五集进度，他表示剧本还在第三稿。</p>
+            </div>
+            <span class="news-tag">导演访谈</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月2日</span>
+            <div class="news-content">
+              <h4>石桥瑞穗《水母记》映后谈：整片仅用自然光</h4>
+              <p>石桥在映后谈里说，水母缸放在窗边，拍摄时间集中在下午两点到四点。8mm胶片的宽容度限制了曝光选择，单帧90秒是多次试拍后的折中值。</p>
+            </div>
+            <span class="news-tag">实验短片</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">11月1日</span>
+            <div class="news-content">
+              <h4>陈迟公布《回声定位》测试片段，手绘层覆盖约30%</h4>
+              <p>测试片段长4分钟，画面以水下录音的波形为基准做手绘叠加。陈迟说明手绘层目前只覆盖了约30%，剩余部分要等录音素材定稿后再画。</p>
+            </div>
+            <span class="news-tag">制作中</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月30日</span>
+            <div class="news-content">
+              <h4>“边缘共振”双周第二周排片公布，实验短片占六成</h4>
+              <p>第二周排片共16场，其中实验短片10场，纪录片与动画各3场。主办方在页面说明里标注了每部短片的介质与字幕状态。</p>
+            </div>
+            <span class="news-tag">展映</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月28日</span>
+            <div class="news-content">
+              <h4>《苔藓与钢铁》导演评论音轨上线，披露静电废片细节</h4>
+              <p>音轨总长1小时52分，导演在第34分钟开始逐段说明废片成因，提到拍摄环境的相对湿度低于35%时静电问题最明显。</p>
+            </div>
+            <span class="news-tag">独立动画</span>
+          </div>
+          <div class="news-item">
+            <span class="news-date">10月26日</span>
+            <div class="news-content">
+              <h4>“边缘共振”双周开幕，首日放映7部短片</h4>
+              <p>开幕日排片从下午两点持续到晚上十点，7部短片中4部为亚洲首映。现场发放的节目册里标注了每部片子的拍摄介质和后期流程。</p>
+            </div>
+            <span class="news-tag">展映</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块4：分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-head">
+          <h2>按类型与介质查找</h2>
+          <span class="sub">8个分类</span>
+        </div>
+        <div class="cat-grid">
+          <a href="/#featured" class="cat-card">
+            <span class="cat-icon">🎞️</span>
+            <h4>实验剧集</h4>
+            <p>多集连载的介质实验</p>
+          </a>
+          <a href="/#featured" class="cat-card">
+            <span class="cat-icon">✏️</span>
+            <h4>手绘动画</h4>
+            <p>赛璐珞与逐帧工艺</p>
+          </a>
+          <a href="/#featured" class="cat-card">
+            <span class="cat-icon">📽️</span>
+            <h4>8mm/16mm胶片</h4>
+            <p>模拟介质实拍短片</p>
+          </a>
+          <a href="/#latest" class="cat-card">
+            <span class="cat-icon">🎬</span>
+            <h4>展映排期</h4>
+            <p>双周展与专场放映</p>
+          </a>
+          <a href="/#deep-dive" class="cat-card">
+            <span class="cat-icon">🔊</span>
+            <h4>声音设计</h4>
+            <p>水下录音与声景实验</p>
+          </a>
+          <a href="/#comments" class="cat-card">
+            <span class="cat-icon">💬</span>
+            <h4>导演访谈</h4>
+            <p>映后谈与线上问答</p>
+          </a>
+          <a href="/#featured" class="cat-card">
+            <span class="cat-icon">🧪</span>
+            <h4>制作中项目</h4>
+            <p>测试片段与工作笔记</p>
+          </a>
+          <a href="/#testimonials" class="cat-card">
+            <span class="cat-icon">📖</span>
+            <h4>创作手记</h4>
+            <p>流程记录与材料说明</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- 板块5：深度解析 -->
+      <section class="section" id="deep-dive">
+        <div class="section-head">
+          <h2>深度解析：介质选择如何改变观看判断</h2>
+        </div>
+        <div class="deep-dive">
+          <h3>胶片颗粒在数字中间片里被保留了什么</h3>
+          <p>
+            《雾中信号》第四集的夜景段落提供了一个可核对的样本。林临在11月3日的问答里说明，16mm底片扫描为4K数字文件后，调色阶段没有做降噪处理。观众在暗部看到的颗粒是实拍底片留下的，不是后期叠加的纹理。这个选择直接影响了观看判断：夜景中的暗部细节比同预算数字拍摄的剧集少，但运动模糊的形态更接近光学成像。
+          </p>
+          <p>
+            把时间线拆开看：9月中旬完成底片冲洗，9月下旬扫描，10月上旬进入调色，三周后输出母版。调色师在问答里补充，扫描分辨率选4K而不是2K，是为了给数字中间片留出裁切空间，但最终母版仍按2K输出。这意味着4K扫描的价值在于调色余量，不在最终分辨率。
+          </p>
+          <blockquote>
+            <p>一句可被反驳的判断：如果夜景颗粒是后期叠加的，那么颗粒的分布会与画面运动无关。第四集里颗粒随镜头运动产生拖尾，这一点在11月7日上线版本的41分钟处可以逐帧核对。</p>
+          </blockquote>
+
+          <h3>赛璐珞静电废片：17处废片说明了什么</h3>
+          <p>
+            《苔藓与钢铁》的评论音轨在第34分钟到第51分钟集中说明废片。导演列出的17处废片里，11处发生在相对湿度低于35%的拍摄日，4处与赛璐珞片基的存放方式有关，剩余2处原因未明确。这个分布把问题指向环境控制，而不是绘画精度。
+          </p>
+          <ul>
+            <li>拍摄日湿度记录：10月12日、14日、19日三天的湿度均在30%—33%之间，废片集中在这三天。</li>
+            <li>片基存放：未使用的赛璐珞片基存放在纸盒里，纸盒吸湿后反而加剧了静电积累。</li>
+            <li>拍摄速度：逐帧拍摄时每帧间隔约12秒，片基与定位针的摩擦次数高于连续拍摄。</li>
+          </ul>
+          <p>
+            对做逐帧动画的人来说，这组信息的价值在于把“废片”从运气问题变成可管理的流程问题。导演在音轨里给出的对策是：拍摄前两小时把片基移到湿度45%—50%的房间，并在定位针附近加一根接地线。这两个动作在音轨里都有具体时间点，可以对照执行。
+          </p>
+
+          <h3>8mm胶片的曝光折中：90秒单帧是怎么来的</h3>
+          <p>
+            石桥瑞穗在11月2日的映后谈里解释，《水母记》的单帧90秒曝光是多次试拍后的折中值。8mm胶片的宽容度比16mm窄，水母缸的玻璃反射又让测光读数偏高。第一次试拍用45秒，画面偏暗；第二次用120秒，水母运动轨迹糊成一片。90秒是在两者之间找到的平衡点，代价是整片只能使用自然光，拍摄窗口固定在下午两点到四点。
+          </p>
+          <p>
+            这组参数对观看的影响是：水母的运动轨迹在胶片上形成连续的亮线，而不是数字拍摄里常见的离散帧。亮线的密度与曝光时长成正比，90秒对应的是中等密度。如果观看时觉得轨迹“太厚”，那是曝光时长导致的，不是后期特效。
+          </p>
+
+          <h3>水下录音与手绘叠加的进度判断</h3>
+          <p>
+            《回声定位》的测试片段提供了一个判断制作进度的样本。4分钟片段里，手绘层覆盖约30%，水下录音是完整的。陈迟在11月1日的动态里说明，剩余手绘部分要等录音素材补录完成后再画，因为手绘的节奏要对齐录音里的具体事件。
+          </p>
+          <p>
+            把两个版本放在一起比较：测试片段里手绘层集中在画面上半部，下半部是录音波形的可视化。这种分布说明手绘部分不是均匀推进的，而是按录音事件分批制作。对观看者来说，测试片段能看的是声音与画面的对位关系，不是最终视觉风格。陈迟在动态里也写了“颜色未定”，所以现在看到的色调不代表完成版。
+          </p>
+        </div>
+      </section>
+
+      <!-- 板块6：体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-head">
+          <h2>体验指南：按介质与版本选择观看顺序</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <h4>先确认介质与版本</h4>
+            <p>同一部短片可能有胶片放映、数字放映和线上版本三种状态。胶片放映的颗粒与数字版本不同，线上版本可能经过压缩。《水母记》目前只有展映现场的8mm放映版本，线上暂无。</p>
+          </div>
+          <div class="guide-step">
+            <h4>再看字幕与语言状态</h4>
+            <p>实验短片的字幕状态差异很大。有的只有映后谈字幕，正片无字幕；有的线上版本带硬字幕。《雾中信号》第四集上线版本带中文硬字幕，《回声定位》测试片段无字幕。</p>
+          </div>
+          <div class="guide-step">
+            <h4>判断条目是否值得投入时间</h4>
+            <p>看两个指标：制作笔记的完整度和映后谈的信息量。《苔藓与钢铁》的评论音轨有1小时52分，包含具体时间点与参数，信息密度高。只有预告片和海报的条目，暂时只标记不投入。</p>
+          </div>
+          <div class="guide-step">
+            <h4>比较同类条目的观看路径</h4>
+            <p>《羊水之外》有线上版本，可以直接看。《水母记》只能等下一轮展映。同类条目先看有完整版本的，把只存在于展映的条目放进排期跟踪列表，按展映时间倒推安排。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块7：FAQ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2>常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>《雾中信号》第四集的胶片颗粒是后期加的吗？</summary>
+            <div class="faq-answer">
+              <p>不是。林临在11月3日的线上问答里说明，16mm底片扫描为4K数字文件后，调色阶段没有做降噪处理。夜景段落的颗粒是实拍底片留下的。可以在11月7日上线版本的41分钟处暂停，逐帧查看颗粒是否随镜头运动产生拖尾。</p>
+            </div>
+          </details>
+          <details>
+            <summary>《苔藓与钢铁》的17处废片是怎么统计出来的？</summary>
+            <div class="faq-answer">
+              <p>导演在评论音轨第34分钟到第51分钟逐段说明，按时间码列出了17处废片。其中11处发生在相对湿度低于35%的拍摄日，4处与赛璐珞片基的纸盒存放方式有关，剩余2处原因未明确。有观众把这些时间码整理成了共享文档，补充了温湿度记录。</p>
+            </div>
+          </details>
+          <details>
+            <summary>《水母记》为什么只能用8mm胶片放映？</summary>
+            <div class="faq-answer">
+              <p>石桥瑞穗在11月2日的映后谈里说，整片仅用自然光拍摄，单帧90秒曝光，8mm胶片的感光特性是画面的一部分。目前没有数字扫描版本，展映现场用的是8mm放映机。下一轮展映排期还没有公布。</p>
+            </div>
+          </details>
+          <details>
+            <summary>《回声定位》测试片段和完成版差距有多大？</summary>
+            <div class="faq-answer">
+              <p>测试片段里手绘层覆盖约30%，颜色未定，下半部是录音波形的可视化。陈迟在11月1日的动态里说明，剩余手绘部分要等三段水下录音补录完成后再画，预计2027年春季完成。测试片段目前只在展映现场可看。</p>
+            </div>
+          </details>
+          <details>
+            <summary>“边缘共振”双周展映结束之后还能看到那些短片吗？</summary>
+            <div class="faq-answer">
+              <p>部分短片有后续放映计划。《水母记》在闭幕日加映了一场，主办方在散场时发放的勘误表里更正了两处时间。其余短片是否加映，要看各导演的授权状态，目前没有统一的线上版本发布。</p>
+            </div>
+          </details>
+          <details>
+            <summary>赛璐珞逐帧动画的静电问题怎么解决？</summary>
+            <div class="faq-answer">
+              <p>导演在评论音轨里给出的对策是：拍摄前两小时把片基移到湿度45%—50%的房间，并在定位针附近加一根接地线。这两个动作在音轨里都有具体时间点，可以对照执行。片基不要放在纸盒里存放，纸盒吸湿后会加剧静电积累。</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 板块8：用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-head">
+          <h2>用户评论：来自观看与制作现场</h2>
+          <span class="sub">14条</span>
+        </div>
+        <div class="comment-grid">
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">阿</span><span class="c-name">阿岚</span></div>
+            <p class="c-text">第四集夜景那段的颗粒确实有拖尾，我逐帧看了41分钟附近，暗部细节比数字拍摄的少，但运动模糊很舒服。</p>
+            <div class="c-meta"><span>11月7日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">老</span><span class="c-name">老白</span></div>
+            <p class="c-text">苔藓与钢铁的评论音轨信息量太大了，1小时52分我分三次才听完。第34分钟开始的废片分析对做动画的人太有用。</p>
+            <div class="c-meta"><span>11月6日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">鱼</span><span class="c-name">鱼丸</span></div>
+            <p class="c-text">水母记没赶上，闭幕日加映那场我也没抢到票。8mm放映机放的，错过就真的看不到了。</p>
+            <div class="c-meta"><span>11月7日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">K</span><span class="c-name">Kai</span></div>
+            <p class="c-text">回声定位的测试片段我看了三遍，手绘层只覆盖30%但声音已经完整了。水下录音的密度很高，戴耳机听细节更多。</p>
+            <div class="c-meta"><span>11月2日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">小</span><span class="c-name">小满</span></div>
+            <p class="c-text">边缘共振的排片表勘误了两处时间，我按旧表去的，结果早了四十分钟。现场工作人员态度还行，补了一张票。</p>
+            <div class="c-meta"><span>11月6日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">陈</span><span class="c-name">陈默</span></div>
+            <p class="c-text">赛璐珞静电那个问题我也遇到过，之前一直以为是片基质量问题。看到湿度低于35%这个数据，才反应过来是环境问题。</p>
+            <div class="c-meta"><span>11月5日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">L</span><span class="c-name">Lynn</span></div>
+            <p class="c-text">羊水之外的水下录音和手绘叠得有点满，声音信息比画面多。不过陈迟说颜色未定，等完成版再看。</p>
+            <div class="c-meta"><span>11月4日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">大</span><span class="c-name">大刘</span></div>
+            <p class="c-text">林临的线上问答我参加了，72分钟，回答得挺细。有人问第五集，他说剧本还在第三稿，估计明年下半年才有动静。</p>
+            <div class="c-meta"><span>11月3日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">柚</span><span class="c-name">柚子</span></div>
+            <p class="c-text">石桥瑞穗说整片只用自然光，这点在现场看特别明显，水母缸的反射是真实的光线，不是打灯能做出来的。</p>
+            <div class="c-meta"><span>11月2日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">H</span><span class="c-name">Hao</span></div>
+            <p class="c-text">回看整理是个力气活，但按介质和字幕状态分好类之后，找片子确实快很多。希望展映排期能再提前两周公布。</p>
+            <div class="c-meta"><span>11月1日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">安</span><span class="c-name">安然</span></div>
+            <p class="c-text">苔藓与钢铁的废片文档我看了，17处废片的温湿度记录很完整。不过2处原因未明确的，导演也没说清楚，有点遗憾。</p>
+            <div class="c-meta"><span>10月30日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">M</span><span class="c-name">Momo</span></div>
+            <p class="c-text">雾中信号第四集41分钟那段我暂停看了，颗粒确实有拖尾。林临说实拍保留，我信。数字拍的拖尾不是这个形态。</p>
+            <div class="c-meta"><span>11月7日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">周</span><span class="c-name">周舟</span></div>
+            <p class="c-text">回声定位的手绘部分只做了30%，但声音已经很好听了。水下录音的波形可视化挺有意思，比单纯的手绘层更有信息。</p>
+            <div class="c-meta"><span>11月2日</span></div>
+          </div>
+          <div class="comment-card">
+            <div class="c-user"><span class="c-avatar">树</span><span class="c-name">树懒</span></div>
+            <p class="c-text">边缘共振的节目册里每部片都标了介质和后期流程，这种细节太重要了。很多展映只写导演和片长，看完就忘。</p>
+            <div class="c-meta"><span>10月28日</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块9：相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2>相关资讯</h2>
+        </div>
+        <div class="news-brief-list">
+          <article class="brief-card">
+            <div class="b-date">2026年11月7日</div>
+            <h4>《雾中信号》第四集上线41分钟版本</h4>
+            <p>片尾字幕列出16mm扫描与4K调色两套流程，调色耗时三周。第五集剧本仍在第三稿阶段，暂无时间表。</p>
+          </article>
+          <article class="brief-card">
+            <div class="b-date">2026年11月6日</div>
+            <h4>“边缘共振”双周闭幕日加映《水母记》</h4>
+            <p>闭幕日放映5部中长片，主办方发放纸质勘误表更正两处时间。加映场次在开场前两小时售罄。</p>
+          </article>
+          <article class="brief-card">
+            <div class="b-date">2026年11月5日</div>
+            <h4>《苔藓与钢铁》废片文档被转发约400次</h4>
+            <p>观众整理的共享文档按时间码列出17处废片，补充了拍摄日的温湿度记录。文档在独立动画社群内持续更新。</p>
+          </article>
+          <article class="brief-card">
+            <div class="b-date">2026年11月3日</div>
+            <h4>林临线上问答持续72分钟，回应胶片扫描参数</h4>
+            <p>问答涉及扫描分辨率、数字中间片色域与夜景布光。有观众问第五集，林临表示剧本还在第三稿。</p>
+          </article>
+          <article class="brief-card">
+            <div class="b-date">2026年11月1日</div>
+            <h4>陈迟公布《回声定位》4分钟测试片段</h4>
+            <p>手绘层覆盖约30%，剩余部分等三段水下录音补录完成。补录地点选在千岛湖，时间未定。</p>
+          </article>
+          <article class="brief-card">
+            <div class="b-date">2026年10月28日</div>
+            <h4>《苔藓与钢铁》导演评论音轨上线</h4>
+            <p>音轨总长1小时52分，第34分钟起逐段说明废片成因。静电问题在相对湿度低于35%时最明显。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 板块10：相关推荐 -->
+      <section class="section" id="related">
+        <div class="section-head">
+          <h2>相关推荐</h2>
+        </div>
+        <div class="tag-cloud">
+          <a href="/#featured">16mm胶片扫描流程</a>
+          <a href="/#featured">赛璐珞静电对策</a>
+          <a href="/#featured">8mm长曝光参数</a>
+          <a href="/#featured">水下录音声景</a>
+          <a href="/#featured">逐帧动画废片管理</a>
+          <a href="/#featured">数字中间片调色</a>
+          <a href="/#featured">展映排期跟踪</a>
+          <a href="/#featured">导演评论音轨</a>
+        </div>
+      </section>
+
+      <!-- 板块11：创作者证言 -->
+      <section class="section" id="testimonials">
+        <div class="section-head">
+          <h2>创作者证言</h2>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <blockquote>“片基湿度这件事我以前没记录过，看了苔藓与钢铁的评论音轨才开始做拍摄日志。11月拍的这批废片率确实降下来了。”</blockquote>
+            <div class="t-author">— 赵一舟，逐帧动画作者</div>
+          </div>
+          <div class="testimonial-card">
+            <blockquote>“16mm扫描4K但母版输出2K，这个选择对我来说很新鲜。林临的问答里把调色余量和最终分辨率的区别讲清楚了。”</blockquote>
+            <div class="t-author">— 孙木，独立导演</div>
+          </div>
+          <div class="testimonial-card">
+            <blockquote>“水母记的单帧90秒不是随便定的，石桥把试拍过程讲得很细。45秒偏暗、120秒糊掉，这种中间值在映后谈里很少听到。”</blockquote>
+            <div class="t-author">— 方其，摄影指导</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 板块12：投稿与交流 -->
+      <section class="section" id="submit">
+        <div class="submit-banner">
+          <div>
+            <h3>投稿你的制作笔记或观看记录</h3>
+            <p>正在做逐帧动画、胶片短片或水下录音项目？把流程记录、废片分析、设备参数整理成文字发过来。展映现场的观看笔记同样欢迎，注明日期与场次即可。</p>
+          </div>
+          <a href="/#submit" class="btn-white">提交稿件 →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右辅助栏 -->
+    <aside class="sidebar" aria-label="辅助信息">
+      <div class="sidebar-card">
+        <h3><span class="dot"></span>本周热榜</h3>
+        <ul class="hot-list">
+          <li><span class="rank top">1</span><a href="/#featured" class="hot-title">《雾中信号》第四集</a><span class="hot-meta">9.2</span></li>
+          <li><span class="rank top">2</span><a href="/#featured" class="hot-title">《水母记》8mm放映</a><span class="hot-meta">8.9</span></li>
+          <li><span class="rank top">3</span><a href="/#featured" class="hot-title">《苔藓与钢铁》评论音轨</a><span class="hot-meta">8.7</span></li>
+          <li><span class="rank">4</span><a href="/#featured" class="hot-title">《回声定位》测试片段</a><span class="hot-meta">8.4</span></li>
+          <li><span class="rank">5</span><a href="/#featured" class="hot-title">《羊水之外》</a><span class="hot-meta">8.1</span></li>
+          <li><span class="rank">6</span><a href="/#latest" class="hot-title">“边缘共振”闭幕加映</a><span class="hot-meta">7.6</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3><span class="dot"></span>更新流</h3>
+        <ul class="update-stream">
+          <li><span class="u-date">11月7日</span><a href="/#latest" class="u-title">《雾中信号》第四集上线</a></li>
+          <li><span class="u-date">11月6日</span><a href="/#latest" class="u-title">“边缘共振”闭幕加映</a></li>
+          <li><span class="u-date">11月5日</span><a href="/#latest" class="u-title">废片文档转发约400次</a></li>
+          <li><span class="u-date">11月3日</span><a href="/#latest" class="u-title">林临线上问答72分钟</a></li>
+          <li><span class="u-date">11月1日</span><a href="/#latest" class="u-title">《回声定位》测试片段</a></li>
+          <li><span class="u-date">10月28日</span><a href="/#latest" class="u-title">导演评论音轨上线</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3><span class="dot"></span>介质速查</h3>
+        <ul class="hot-list">
+          <li><span class="rank">·</span><span class="hot-title">16mm胶片 / 4K扫描</span></li>
+          <li><span class="rank">·</span><span class="hot-title">8mm胶片 / 自然光</span></li>
+          <li><span class="rank">·</span><span class="hot-title">赛璐珞 / 逐帧拍摄</span></li>
+          <li><span class="rank">·</span><span class="hot-title">水下录音 / 声景</span></li>
+          <li><span class="rank">·</span><span class="hot-title">数字中间片 / 2K母版</span></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 搜索无结果提示 -->
+  <div class="container" style="padding-bottom: 20px;">
+    <div class="search-empty" id="search-empty">没有找到匹配的条目，试试“雾中信号”“苔藓与钢铁”“水母记”或“回声定位”。</div>
+  </div>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="back-to-top" aria-label="回到顶部">↑</button>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="f-logo">
+            <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="15" cy="15" r="13" fill="#3d8a66"/>
+              <path d="M8 18c3-5.5 11-5.5 14 0" stroke="#f2e8d5" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="15" cy="11" r="2.4" fill="#f2e8d5"/>
+            </svg>
+            <span>fi11.cn含羞草中转站</span>
+          </div>
+          <p class="footer-desc">
+            覆盖2026年10月至11月的实验影像与独立动画条目，按介质、版本与展映状态分层记录，每日更新展映排期与制作进度。
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>内容</h4>
+          <a href="/#featured">精选推荐</a>
+          <a href="/#latest">最新动态</a>
+          <a href="/#deep-dive">深度解析</a>
+          <a href="/#guide">体验指南</a>
+        </div>
+        <div class="footer-col">
+          <h4>互动</h4>
+          <a href="/#comments">用户评论</a>
+          <a href="/#submit">投稿与交流</a>
+          <a href="/#testimonials">创作者证言</a>
+        </div>
+        <div class="footer-col">
+          <h4>信息</h4>
+          <a href="/#faq">常见问题</a>
+          <a href="/#news">相关资讯</a>
+          <a href="/#related">相关推荐</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 fi11.cn含羞草中转站 · 内容聚合示例页面</span>
+        <span>条目信息为示例数据，展映与制作动态以官方发布为准</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WebSite 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "fi11.cn含羞草中转站",
+    "description": "聚合实验影像、独立动画与先锋短片的条目信息、展映排期与制作动态。",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+
+  <!-- FAQPage 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "《雾中信号》第四集的胶片颗粒是后期加的吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不是。林临在11月3日的线上问答里说明，16mm底片扫描为4K数字文件后，调色阶段没有做降噪处理。夜景段落的颗粒是实拍底片留下的。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《苔藓与钢铁》的17处废片是怎么统计出来的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "导演在评论音轨第34分钟到第51分钟逐段说明，按时间码列出了17处废片。其中11处发生在相对湿度低于35%的拍摄日，4处与赛璐珞片基的纸盒存放方式有关，剩余2处原因未明确。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《水母记》为什么只能用8mm胶片放映？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "石桥瑞穗在11月2日的映后谈里说，整片仅用自然光拍摄，单帧90秒曝光，8mm胶片的感光特性是画面的一部分。目前没有数字扫描版本，展映现场用的是8mm放映机。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《回声定位》测试片段和完成版差距有多大？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "测试片段里手绘层覆盖约30%，颜色未定，下半部是录音波形的可视化。陈迟在11月1日的动态里说明，剩余手绘部分要等三段水下录音补录完成后再画，预计2027年春季完成。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "“边缘共振”双周展映结束之后还能看到那些短片吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "部分短片有后续放映计划。《水母记》在闭幕日加映了一场。其余短片是否加映，要看各导演的授权状态，目前没有统一的线上版本发布。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "赛璐珞逐帧动画的静电问题怎么解决？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "导演在评论音轨里给出的对策是：拍摄前两小时把片基移到湿度45%—50%的房间，并在定位针附近加一根接地线。片基不要放在纸盒里存放，纸盒吸湿后会加剧静电积累。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    (function() {
+      // 移动端菜单
+      var menuToggle = document.getElementById('menu-toggle');
+      var mainNav = document.querySelector('.main-nav');
+      var overlay = document.getElementById('menu-overlay');
+      var header = document.getElementById('site-header');
+
+      function closeMenu() {
+        if (mainNav) mainNav.style.display = '';
+        if (overlay) overlay.classList.remove('active');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = mainNav.style.display === 'flex';
+          if (isOpen) {
+            closeMenu();
+          } else {
+            mainNav.style.display = 'flex';
+            mainNav.style.position = 'absolute';
+            mainNav.style.top = '100%';
+            mainNav.style.left = '0';
+            mainNav.style.right = '0';
+            mainNav.style.background = 'var(--surface)';
+            mainNav.style.padding = '12px 20px';
+            mainNav.style.boxShadow = 'var(--shadow-hover)';
+            mainNav.style.borderBottom = '1px solid var(--border-light)';
+            mainNav.style.flexDirection = 'column';
+            mainNav.style.zIndex = '100';
+            overlay.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // 移动端点击导航后收起
+      if (mainNav) {
+        mainNav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 740) closeMenu();
+          });
+        });
+      }
+
+      // 回到顶部
+      var backBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backBtn.classList.add('visible');
+        } else {
+          backBtn.classList.remove('visible');
+        }
+      });
+      backBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 搜索筛选
+      var searchInput = document.getElementById('search-input');
+      var searchBtn = document.getElementById('search-btn');
+      var featuredGrid = document.getElementById('featured-grid');
+      var emptyHint = document.getElementById('search-empty');
+
+      function performSearch() {
+        var q = searchInput.value.trim().toLowerCase();
+        var cards = featuredGrid.querySelectorAll('.content-card');
+        var found = 0;
+        cards.forEach(function(card) {
+          var text = (card.getAttribute('data-search') || '') + ' ' + card.textContent.toLowerCase();
+          if (!q || text.indexOf(q) !== -1) {
+            card.style.display = '';
+            found++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        if (q && found === 0) {
+          emptyHint.classList.add('visible');
+        } else {
+          emptyHint.classList.remove('visible');
+        }
+      }
+
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch();
+        }
+      });
+      searchInput.addEventListener('input', function() {
+        if (searchInput.value.trim() === '') {
+          performSearch();
+        }
+      });
+
+      // 侧栏频道高亮（滚动进入视口）
+      var channelLinks = document.querySelectorAll('.channel-nav a');
+      var sections = [];
+      channelLinks.forEach(function(link) {
+        var id = link.getAttribute('href');
+        if (id && id.startsWith('/#')) {
+          var el = document.querySelector(id.replace('/#', '#'));
+          if (el) sections.push({ el: el, link: link });
+        }
+      });
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              channelLinks.forEach(function(l) { l.classList.remove('active'); });
+              var match = sections.find(function(s) { return s.el === entry.target; });
+              if (match) match.link.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function(s) { observer.observe(s.el); });
+      }
+    })();
+  </script>
+</body>
+          </html>
