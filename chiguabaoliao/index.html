@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吃瓜爆料大赛聚集地 - 赛事爆料与作品聚合</title>
+  <meta name="description" content="吃瓜爆料大赛聚集地汇集赛事最新爆料、参赛作品、选手动态与规则解读，面向关注娱乐爆料和创作比赛的观众与选手，提供可查阅的条目、时间线与讨论。">
+  <meta name="keywords" content="吃瓜爆料大赛聚集地">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f4a261'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%232b2b2b' font-family='sans-serif'%3E吃%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand: #d95f2b;
+      --brand-light: #f4a261;
+      --brand-deep: #9e3b16;
+      --bg: #fdf8f3;
+      --panel: #ffffff;
+      --text: #2b2b2b;
+      --text-2: #5f5f5f;
+      --text-3: #8a8a8a;
+      --line: #e8ddd0;
+      --radius-card: 14px;
+      --radius-btn: 999px;
+      --radius-tag: 6px;
+      --shadow: 0 2px 8px rgba(0,0,0,.04);
+      --shadow-hover: 0 6px 20px rgba(0,0,0,.08);
+      --sticky-offset: 108px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { max-width: 1360px; margin: 0 auto; padding: 0 20px; }
+    .sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(253,248,243,.92);
+      border-bottom: 1px solid var(--line);
+    }
+    .announcement {
+      background: var(--brand-deep);
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 0;
+    }
+    .announcement .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      align-items: center;
+    }
+    .announcement .badge {
+      background: var(--brand-light);
+      color: var(--brand-deep);
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: var(--radius-tag);
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+    .announcement .item { display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+    .announcement .date { opacity: .8; font-variant-numeric: tabular-nums; }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 12px 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -.5px;
+      color: var(--brand-deep);
+      flex-shrink: 0;
+    }
+    .logo svg { width: 34px; height: 34px; }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .main-nav a {
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: var(--radius-btn);
+      color: var(--text-2);
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    .main-nav a:hover { background: var(--brand-light); color: var(--brand-deep); }
+    .header-actions { display: flex; gap: 10px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 18px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background .2s, box-shadow .2s, transform .15s;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-deep); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+    .btn-outline { border: 1.5px solid var(--brand); color: var(--brand); }
+    .btn-outline:hover { background: var(--brand-light); color: var(--brand-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 4px; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .2s; }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 150; }
+    .hero {
+      padding: 48px 0 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,162,97,.25), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.25;
+      letter-spacing: -1px;
+      color: var(--brand-deep);
+      margin-bottom: 16px;
+    }
+    .hero-desc { font-size: 16px; color: var(--text-2); max-width: 520px; margin-bottom: 24px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-visual svg { width: 100%; max-width: 420px; height: auto; }
+    .layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 280px;
+      gap: 28px;
+      align-items: start;
+      padding-bottom: 40px;
+    }
+    .sidebar-left {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 16px 0;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .sidebar-left h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-3);
+      padding: 0 16px 8px;
+    }
+    .sidebar-left nav a {
+      display: block;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: var(--text-2);
+      border-left: 3px solid transparent;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .sidebar-left nav a:hover,
+    .sidebar-left nav a.active {
+      background: #fef3ea;
+      color: var(--brand-deep);
+      border-left-color: var(--brand);
+      font-weight: 600;
+    }
+    .sidebar-right {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .side-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .side-card h3 { font-size: 15px; margin-bottom: 12px; color: var(--brand-deep); }
+    .side-card ul { list-style: none; }
+    .side-card li { padding: 6px 0; font-size: 13.5px; border-bottom: 1px dashed var(--line); }
+    .side-card li:last-child { border-bottom: none; }
+    .side-card li a { color: var(--text-2); transition: color .2s; }
+    .side-card li a:hover { color: var(--brand); }
+    .hot-num { display: inline-block; width: 18px; font-weight: 700; color: var(--brand); margin-right: 6px; }
+    .main-content { display: flex; flex-direction: column; gap: 40px; }
+    .section {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
+    .section-header h2 { font-size: 20px; color: var(--brand-deep); letter-spacing: -.3px; }
+    .section-header .more { font-size: 13px; color: var(--text-3); }
+    .section-header .more:hover { color: var(--brand); }
+    .overview-text { font-size: 15px; color: var(--text-2); line-height: 1.85; }
+    .overview-text p { margin-bottom: 12px; }
+    .overview-text p:last-child { margin-bottom: 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-type {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 6px;
+    }
+    .card-title { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+    .card-desc { font-size: 13px; color: var(--text-2); flex: 1; margin-bottom: 10px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: #fef3ea;
+      color: var(--brand-deep);
+      white-space: nowrap;
+    }
+    .card-meta { font-size: 12px; color: var(--text-3); display: flex; justify-content: space-between; }
+    .list-compact { display: flex; flex-direction: column; gap: 0; }
+    .list-item {
+      display: flex;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item .date-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      background: #fef3ea;
+      padding: 3px 8px;
+      border-radius: var(--radius-tag);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .list-item .item-info { flex: 1; }
+    .list-item .item-title { font-size: 14.5px; font-weight: 600; margin-bottom: 2px; }
+    .list-item .item-summary { font-size: 13px; color: var(--text-2); }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .category-item {
+      text-align: center;
+      padding: 16px 8px;
+      border-radius: var(--radius-card);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-2);
+      transition: background .2s, color .2s, border-color .2s;
+      cursor: pointer;
+    }
+    .category-item:hover { background: #fef3ea; color: var(--brand-deep); border-color: var(--brand-light); }
+    .deep-dive h3 {
+      font-size: 17px;
+      color: var(--brand-deep);
+      margin: 22px 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--brand-light);
+      display: inline-block;
+    }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p { font-size: 14.5px; color: var(--text-2); margin-bottom: 12px; line-height: 1.85; }
+    .deep-dive ul { margin: 8px 0 14px 20px; font-size: 14px; color: var(--text-2); }
+    .deep-dive li { margin-bottom: 4px; }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 14px 0 18px;
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .compare-table th { background: #fef3ea; color: var(--brand-deep); font-weight: 700; }
+    .guide-steps { display: flex; flex-direction: column; gap: 14px; counter-reset: step; }
+    .guide-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 16px;
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      counter-increment: step;
+    }
+    .guide-step::before {
+      content: counter(step);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--brand);
+      background: #fef3ea;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .guide-step .step-text { font-size: 14px; color: var(--text-2); }
+    .guide-step .step-text strong { color: var(--text); }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    details {
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      padding: 0 16px;
+    }
+    details summary {
+      padding: 12px 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 18px; color: var(--brand); font-weight: 400; }
+    details[open] summary::after { content: '−'; }
+    details p { font-size: 14px; color: var(--text-2); padding: 0 0 14px; line-height: 1.8; }
+    .comment-list { display: flex; flex-direction: column; gap: 14px; }
+    .comment-item { display: flex; gap: 12px; }
+    .avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      color: var(--brand-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+      flex-shrink: 0;
+    }
+    .comment-body { flex: 1; }
+    .comment-name { font-size: 13px; font-weight: 700; color: var(--brand-deep); margin-bottom: 2px; }
+    .comment-text { font-size: 13.5px; color: var(--text-2); }
+    .news-list { display: flex; flex-direction: column; gap: 16px; }
+    .news-item { display: flex; gap: 16px; align-items: flex-start; }
+    .news-date { font-size: 12px; color: var(--text-3); white-space: nowrap; width: 80px; flex-shrink: 0; padding-top: 2px; }
+    .news-content { flex: 1; }
+    .news-title { font-size: 14.5px; font-weight: 700; margin-bottom: 2px; }
+    .news-summary { font-size: 13px; color: var(--text-2); }
+    .tag-index { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag-index .tag { font-size: 13px; padding: 5px 14px; }
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 20px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: var(--line);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 10px 0 10px 16px;
+      font-size: 13.5px;
+      color: var(--text-2);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -18px; top: 16px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      border: 2px solid var(--brand);
+    }
+    .timeline-item strong { color: var(--text); display: block; font-size: 14px; }
+    .footer {
+      background: #2b1e14;
+      color: #cbb9a8;
+      padding: 40px 0 24px;
+      margin-top: 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer h4 { color: #f4a261; font-size: 14px; margin-bottom: 10px; }
+    .footer p { font-size: 13px; line-height: 1.8; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 6px; font-size: 13px; }
+    .footer a:hover { color: #f4a261; }
+    .footer-bottom {
+      border-top: 1px solid #4a3728;
+      padding-top: 18px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: var(--shadow-hover);
+      opacity: 0; visibility: hidden;
+      transition: opacity .25s, visibility .25s, transform .2s;
+      z-index: 90;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { background: var(--brand-deep); transform: translateY(-2px); }
+    .search-box {
+      display: flex;
+      gap: 0;
+      margin-bottom: 16px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-btn) 0 0 var(--radius-btn);
+      font-size: 14px;
+      outline: none;
+      background: var(--bg);
+    }
+    .search-box input:focus { border-color: var(--brand); }
+    .search-box button {
+      padding: 9px 18px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .search-box button:hover { background: var(--brand-deep); }
+    .search-feedback { font-size: 13px; color: var(--text-3); margin-top: 6px; }
+    @media (max-width: 1024px) {
+      .layout { grid-template-columns: 1fr 1fr; }
+      .sidebar-left { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+      .hero-visual svg { max-width: 320px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar-right { position: static; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .header-actions .btn { display: none; }
+      .section { padding: 20px 16px; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 26px; }
+      .announcement .container { font-size: 12px; gap: 4px 12px; }
+      .news-item { flex-direction: column; gap: 4px; }
+      .news-date { width: auto; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+      .comment-item .avatar { width: 30px; height: 30px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+  <div class="sticky-wrap">
+    <div class="announcement">
+      <div class="container">
+        <span class="badge">吃瓜爆料大赛聚集地</span>
+        <span class="item"><span class="date">2026-11-08</span>「夜光剧本2.0」决赛圈爆料更新</span>
+        <span class="item"><span class="date">2026-11-07</span>第14期「塌房预警」作品投稿破600件</span>
+        <span class="item"><span class="date">2026-11-06</span>选手「瓜田老猹」退赛声明已发布</span>
+      </div>
+    </div>
+    <header class="container header">
+      <div class="logo">
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="34" height="34" rx="9" fill="#F4A261"/>
+          <circle cx="13" cy="14" r="5" fill="#9E3B16"/>
+          <circle cx="21" cy="14" r="5" fill="#9E3B16" opacity=".7"/>
+          <path d="M9 22c2 4 14 4 16 0" stroke="#2B1E14" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="12" cy="13" r="1.8" fill="#FFF"/>
+          <circle cx="22" cy="13" r="1.8" fill="#FFF"/>
+        </svg>
+        吃瓜爆料大赛聚集地
+      </div>
+      <nav class="main-nav">
+        <a href="/#overview">赛事概览</a>
+        <a href="/#featured">精选作品</a>
+        <a href="/#updates">最新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">观赛指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">网友评论</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/#featured" class="btn btn-outline">投稿作品</a>
+        <a href="/#updates" class="btn btn-primary">进入赛场</a>
+      </div>
+      <button class="hamburger" aria-label="打开菜单" aria-expanded="false" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>吃瓜爆料大赛聚集地</h1>
+        <p class="hero-desc">聚合2026年吃瓜爆料大赛的参赛作品、选手动态、赛程规则与观众讨论，覆盖从“夜光剧本2.0”到“塌房预警”的14期赛事条目，为吃瓜观众和参赛选手提供可查阅的爆料时间线与作品库。</p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn btn-primary">浏览参赛作品</a>
+          <a href="/#updates" class="btn btn-outline">查看最新爆料</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="40" width="380" height="240" rx="20" fill="#FEF3EA" stroke="#E8DDD0" stroke-width="2"/>
+          <circle cx="80" cy="100" r="28" fill="#F4A261" opacity=".5"/>
+          <circle cx="340" cy="90" r="20" fill="#D95F2B" opacity=".25"/>
+          <rect x="130" y="70" width="140" height="14" rx="7" fill="#D95F2B" opacity=".3"/>
+          <rect x="110" y="100" width="180" height="10" rx="5" fill="#E8DDD0"/>
+          <rect x="130" y="122" width="140" height="10" rx="5" fill="#E8DDD0"/>
+          <rect x="60" y="160" width="300" height="60" rx="12" fill="#F4A261" opacity=".18"/>
+          <rect x="80" y="176" width="120" height="8" rx="4" fill="#D95F2B" opacity=".5"/>
+          <rect x="80" y="192" width="200" height="8" rx="4" fill="#E8DDD0"/>
+          <circle cx="310" cy="200" r="16" fill="#9E3B16" opacity=".2"/>
+          <path d="M300 200 L306 206 L320 192" stroke="#D95F2B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="60" y="240" width="110" height="8" rx="4" fill="#E8DDD0"/>
+          <rect x="190" y="240" width="70" height="8" rx="4" fill="#E8DDD0"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="sidebar-left" aria-label="频道索引">
+      <h3>频道导航</h3>
+      <nav>
+        <a href="/#overview" class="active">赛事概览</a>
+        <a href="/#featured">精选作品</a>
+        <a href="/#updates">最新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">观赛指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">网友评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#recommend">相关推荐</a>
+        <a href="/#timeline">赛程时间线</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section class="section" id="overview">
+        <div class="section-header">
+          <h2>2026吃瓜爆料大赛赛事概览</h2>
+        </div>
+        <div class="overview-text">
+          <p>吃瓜爆料大赛是一档以“娱乐爆料创作”为核心的线上赛事，参赛者用图文、短视频或长文形式还原、演绎或分析娱乐圈、网红圈及社交平台上的热点事件。2026赛季从9月15日开赛，截至11月8日已进行到第14期，累计收到投稿作品超过2800件，参赛选手412人，其中“瓜田老猹”“深夜吃瓜局”“猹猹观察”等账号长期占据作品热度榜前列。</p>
+          <p>赛事围绕三条主线展开：其一是“还原类”作品，要求基于公开报道和已确认信息，用时间线或关系图梳理事件全貌；其二是“分析类”作品，侧重对爆料可信度、传播路径或公关策略的拆解；其三是“演绎类”作品，允许虚构化改编，但必须标注“剧情演绎”标识。三条赛道每周各评出一件“周最佳”，再于12月20日总决赛角逐年度“金瓜奖”。</p>
+          <p>当前最受关注的是第14期主题“塌房预警”——参赛者需要从近三个月内真实发生的艺人争议事件中选取素材，提交一份包含“已公开事实”“当事人回应”“媒体转述”“网友推测”四层信息标注的爆料梳理作品。截至11月8日18时，该主题下已有47件作品进入初审，其中12件因信源标注不全被退回修改。评委组在11月5日的直播中特别提到，今年评分标准中“信源可核查性”权重从15%上调至25%。</p>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="section-header">
+          <h2>本周精选参赛作品</h2>
+          <span class="more">共展示8件</span>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep1/400/300" width="400" height="300" loading="lazy" alt="夜光剧本2.0时间线梳理作品封面">
+            <div class="card-body">
+              <div class="card-type">还原类</div>
+              <div class="card-title">夜光剧本2.0：72小时时间线全梳理</div>
+              <div class="card-desc">作者“猹猹观察”用交互式时间轴还原11月1日至3日的47条公开动态，标注了每条信息的首发账号和转发量级。</div>
+              <div class="card-tags"><span class="tag">时间线</span><span class="tag">信源标注</span><span class="tag">夜光剧本</span></div>
+              <div class="card-meta"><span>热度 9.8万</span><span>评分 9.2</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep2/400/300" width="400" height="300" loading="lazy" alt="塌房预警四层信息拆解作品封面">
+            <div class="card-body">
+              <div class="card-type">分析类</div>
+              <div class="card-title">塌房预警：四层信息拆解“某顶流恋情曝光”</div>
+              <div class="card-desc">“深夜吃瓜局”将狗仔爆料、工作室声明、品牌方动作、粉丝反应分栏对照，指出其中两处时间线矛盾。</div>
+              <div class="card-tags"><span class="tag">信源分层</span><span class="tag">公关分析</span><span class="tag">塌房预警</span></div>
+              <div class="card-meta"><span>热度 8.5万</span><span>评分 9.0</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep3/400/300" width="400" height="300" loading="lazy" alt="选秀回锅肉争议复盘作品封面">
+            <div class="card-body">
+              <div class="card-type">分析类</div>
+              <div class="card-title">选秀“回锅肉”争议复盘：谁在带节奏</div>
+              <div class="card-desc">作者“瓜田老猹”统计了10月20日至11月5日期间相关话题下阅读量过百万的68条博文，按账号类型分类。</div>
+              <div class="card-tags"><span class="tag">选秀</span><span class="tag">账号分析</span><span class="tag">争议复盘</span></div>
+              <div class="card-meta"><span>热度 7.9万</span><span>评分 8.8</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep4/400/300" width="400" height="300" loading="lazy" alt="短剧剧组冲突事件演绎作品封面">
+            <div class="card-body">
+              <div class="card-type">演绎类</div>
+              <div class="card-title">短剧剧组冲突事件：三方视角小剧场</div>
+              <div class="card-desc">“吃瓜不吐皮”用三段第一人称独白还原剧组冲突传闻，片头明确标注“剧情演绎，非事实记录”。</div>
+              <div class="card-tags"><span class="tag">短剧</span><span class="tag">剧情演绎</span><span class="tag">三方视角</span></div>
+              <div class="card-meta"><span>热度 7.2万</span><span>评分 8.5</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep5/400/300" width="400" height="300" loading="lazy" alt="网红品牌翻车事件信息核查作品封面">
+            <div class="card-body">
+              <div class="card-type">分析类</div>
+              <div class="card-title">网红品牌翻车：差评截图背后的信息核查</div>
+              <div class="card-desc">作者“配料表侦探”逐一比对某零食品牌10月28日声明与消费者晒图，发现三处批次号对不上。</div>
+              <div class="card-tags"><span class="tag">信息核查</span><span class="tag">品牌翻车</span><span class="tag">消费者晒图</span></div>
+              <div class="card-meta"><span>热度 6.8万</span><span>评分 9.1</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep6/400/300" width="400" height="300" loading="lazy" alt="综艺剪辑争议逐帧对比作品封面">
+            <div class="card-body">
+              <div class="card-type">还原类</div>
+              <div class="card-title">综艺剪辑争议：正片与花絮逐帧对比</div>
+              <div class="card-desc">“剪辑课代表”截取《周末派对》第8期正片和会员花絮各12分钟，标记出7处剪辑顺序调换。</div>
+              <div class="card-tags"><span class="tag">综艺剪辑</span><span class="tag">逐帧对比</span><span class="tag">周末派对</span></div>
+              <div class="card-meta"><span>热度 6.1万</span><span>评分 8.7</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep7/400/300" width="400" height="300" loading="lazy" alt="粉丝抽奖承诺未兑现事件追踪作品封面">
+            <div class="card-body">
+              <div class="card-type">还原类</div>
+              <div class="card-title">粉丝抽奖承诺未兑现：三个月追踪记录</div>
+              <div class="card-desc">作者“抽奖监督员”记录了某艺人后援会8月15日承诺的100份周边抽奖，截至11月7日仅发出23份。</div>
+              <div class="card-tags"><span class="tag">后援会</span><span class="tag">抽奖追踪</span><span class="tag">粉丝经济</span></div>
+              <div class="card-meta"><span>热度 5.6万</span><span>评分 8.9</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/guatiep8/400/300" width="400" height="300" loading="lazy" alt="直播带货刷单疑云数据对比作品封面">
+            <div class="card-body">
+              <div class="card-type">分析类</div>
+              <div class="card-title">直播带货刷单疑云：三场直播数据对比</div>
+              <div class="card-desc">对比同一主播10月12日、10月26日、11月3日三场直播的在线人数曲线和商品销量曲线，指出异常同步点。</div>
+              <div class="card-tags"><span class="tag">直播带货</span><span class="tag">数据对比</span><span class="tag">刷单疑云</span></div>
+              <div class="card-meta"><span>热度 5.2万</span><span>评分 8.6</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="updates">
+        <div class="section-header">
+          <h2>最新动态与赛程更新</h2>
+        </div>
+        <div class="list-compact">
+          <div class="list-item">
+            <span class="date-badge">11-08</span>
+            <div class="item-info">
+              <div class="item-title">第14期“塌房预警”初审结果公布</div>
+              <div class="item-summary">47件投稿中35件进入复审，12件因缺少“当事人回应”层标注被退回，修改窗口开放至11月10日23:59。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-08</span>
+            <div class="item-info">
+              <div class="item-title">选手“瓜田老猹”宣布退出本届金瓜奖角逐</div>
+              <div class="item-summary">其在个人主页发布退赛声明，称“近期素材涉及现实人际关系，选择回避”，已提交的3件作品保留展示但不参与评奖。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-07</span>
+            <div class="item-info">
+              <div class="item-title">“夜光剧本2.0”话题页访问量突破120万</div>
+              <div class="item-summary">赛事专题页11月5日上线该话题聚合，48小时内访问量达120万次，其中移动端占比82%。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-06</span>
+            <div class="item-info">
+              <div class="item-title">评委组新增“信源可核查性”评分细则</div>
+              <div class="item-summary">11月5日直播中公布细则：每件作品须标注至少3个可点击溯源的信息节点，缺失1个扣0.5分，上限扣3分。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-05</span>
+            <div class="item-info">
+              <div class="item-title">第13期“反转再反转”周最佳揭晓</div>
+              <div class="item-summary">“配料表侦探”的《网红品牌翻车：差评截图背后的信息核查》以9.1分获周最佳，评委评语提到“批次号比对是硬功夫”。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-04</span>
+            <div class="item-info">
+              <div class="item-title">投稿系统新增“信源标签”必填项</div>
+              <div class="item-summary">从11月4日18时起，所有新投稿须在编辑器中为每段事实标注“公开报道”“当事人声明”“网友爆料”等来源类型。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-03</span>
+            <div class="item-info">
+              <div class="item-title">“金瓜奖”总决赛定档12月20日</div>
+              <div class="item-summary">总决赛将在线上直播，设“最佳还原”“最佳分析”“最佳演绎”三个单项奖，奖金池合计12万元。</div>
+            </div>
+          </div>
+          <div class="list-item">
+            <span class="date-badge">11-02</span>
+            <div class="item-info">
+              <div class="item-title">第15期主题公布：“跨圈联动”</div>
+              <div class="item-summary">要求参赛者选取两个不同圈层（如电竞与娱乐圈、学术圈与网红圈）的交集事件进行梳理，投稿12月1日截止。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="categories">
+        <div class="section-header">
+          <h2>按类型查找作品</h2>
+        </div>
+        <div class="category-grid">
+          <div class="category-item">时间线还原</div>
+          <div class="category-item">信源核查</div>
+          <div class="category-item">公关策略分析</div>
+          <div class="category-item">粉丝行为观察</div>
+          <div class="category-item">综艺剪辑对比</div>
+          <div class="category-item">直播数据拆解</div>
+          <div class="category-item">剧情演绎小剧场</div>
+          <div class="category-item">品牌翻车复盘</div>
+        </div>
+      </section>
+
+      <section class="section deep-dive" id="deep-dive">
+        <div class="section-header">
+          <h2>深度解析：爆料作品的信源分层怎么拆</h2>
+        </div>
+        <h3>四层信息标注的实操差异</h3>
+        <p>第14期要求标注的“已公开事实”“当事人回应”“媒体转述”“网友推测”四层，在实际操作中边界并不像字面那么清楚。以11月1日“夜光剧本2.0”事件为例：狗仔账号发布的一段视频属于“已公开事实”还是“网友推测”？赛事评委组在11月5日的直播答疑中给出的判断标准是——看发布者是否具备第一手采集能力。狗仔账号自己拍摄的视频算事实层，但视频中配的旁白解读归入推测层。这条规则直接影响到多件作品的评分：初审被退回的12件里有7件是把旁白和画面混在同一层标注。</p>
+        <p>更麻烦的是“媒体转述”。10月29日某娱乐媒体引述“知情人士”称“双方已分手”，这句话在作品里应该标哪一层？目前评委组接受的方案是标“媒体转述”，但需要附上该媒体过往同类报道的准确率记录作为参考。这个要求是11月4日投稿系统更新后才明确的，之前提交的作品可以补标。</p>
+        <h3>两组数据看信源标注对评分的影响</h3>
+        <p>统计第13期和第14期初审数据：第13期未强制信源标注时，作品平均分为7.4分，最高分9.2分；第14期强制标注后，已提交的35件复审作品平均分为8.1分，但标准差从1.3扩大到1.7。也就是说，认真做标注的作品分数上去了，敷衍标注的被拉下来了。评委组在11月6日的内部简报里提到一个具体案例：同一事件的两件作品，A作品标注了11个信源节点，B作品只标了3个，两者在“可核查性”一项上相差2.1分。</p>
+        <table class="compare-table">
+          <tr><th>信息层级</th><th>判定标准</th><th>常见误标</th></tr>
+          <tr><td>已公开事实</td><td>有第一手采集记录或官方文件</td><td>把营销号转载当事实</td></tr>
+          <tr><td>当事人回应</td><td>本人或工作室官方账号发布</td><td>把粉丝团声明当当事人回应</td></tr>
+          <tr><td>媒体转述</td><td>有署名记者或媒体机构署名</td><td>把匿名投稿当媒体报道</td></tr>
+          <tr><td>网友推测</td><td>无明确信源、基于截图或聊天记录</td><td>把推测内容放进事实层</td></tr>
+        </table>
+        <h3>“反转事件”里的信源时效问题</h3>
+        <p>11月2日某短剧剧组冲突事件出现反转：上午流传的“工作人员受伤”说法，下午被剧组官方声明否认，晚上又有一段现场音频流出。三件参赛作品对这个事件的标注处理各不相同——最早提交的那件把上午的传闻标为“已公开事实”，被复审评委打回；第二件在晚上音频流出后补标了“待核实”，通过复审；第三件直接放弃该事件，改做同期的另一个选题。评委组在11月7日的公告里特意点了这个案例，提醒参赛者：对仍在发酵的事件，提交前应检查最近6小时内是否有新信源出现，避免把过时信息钉死在事实层。</p>
+        <p>这条提醒有了具体后果。11月8日公布的复审名单里，涉及短剧剧组冲突的作品只剩2件，其中1件是11月7日23时才提交的修改版。赛事规则允许在截止前无限次修改，但每次修改后需要重新走初审流程，平均耗时4小时。不少选手在评论区吐槽这个时间成本，不过规则暂时没有调整计划。</p>
+      </section>
+
+      <section class="section" id="guide">
+        <div class="section-header">
+          <h2>观赛与作品消费路径</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step"><div class="step-text"><strong>先看当期主题的规则页。</strong>每期主题的标注要求不一样，第14期要求四层信息全标，第13期只要求标事实和推测两层。规则页在赛事主页置顶，更新日期以页面显示为准。</div></div>
+          <div class="guide-step"><div class="step-text"><strong>从周最佳作品入手。</strong>周最佳通常信源标注完整、结构清楚，适合用来判断当期作品的合格线。第13期周最佳是《网红品牌翻车：差评截图背后的信息核查》，第12期是《选秀回锅肉争议复盘：谁在带节奏》。</div></div>
+          <div class="guide-step"><div class="step-text"><strong>对比同一事件的两件以上作品。</strong>信源分层做得好的作品，读起来像在看两份不同角度的笔录；做得差的，通篇只有结论没有出处。对比时重点看“网友推测”层是否被单独框出来，还是混在事实里。</div></div>
+          <div class="guide-step"><div class="step-text"><strong>留意作品的提交时间。</strong>对反转事件，提交时间越晚的作品越可能包含新信源。但晚提交不等于更准确，需要看它有没有把早先的错误信息降级处理。11月7日之后提交的短剧剧组冲突相关作品，基本都做了降级。</div></div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-header">
+          <h2>关于爆料大赛的常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>第14期“塌房预警”的投稿截止到什么时候？</summary>
+            <p>第14期投稿已于11月8日12:00截止，但被退回修改的12件作品可以在11月10日23:59前重新提交。逾期视为放弃复审资格。第15期“跨圈联动”从11月9日0时开放投稿，截止12月1日12:00。</p>
+          </details>
+          <details>
+            <summary>“信源可核查性”具体怎么扣分？</summary>
+            <p>每件作品需要标注至少3个可溯源信息节点，每个节点要写明来源类型、发布账号和发布时间。缺1个节点扣0.5分，最多扣3分。如果节点标注了但链接打不开或账号已注销，按缺失处理。11月5日直播里评委举过一个例子：某作品标了5个节点，其中2个链接404，最终按3个节点算，扣1分。</p>
+          </details>
+          <details>
+            <summary>“瓜田老猹”退赛会影响已提交作品的展示吗？</summary>
+            <p>三件作品保留在作品库中正常展示，观众可以浏览、评论和收藏，但不参与第14期复审和年度金瓜奖评选。赛事规则里没有“退赛删作品”的条款，选手本人也没有提出删除请求。其作品页目前挂有“作者已退赛”的灰色标签。</p>
+          </details>
+          <details>
+            <summary>“夜光剧本2.0”话题页里哪些信息被官方标为待核实？</summary>
+            <p>截至11月8日18时，话题页中标注“待核实”的有三条：一是某品牌方内部通知截图，二是所谓“双方共同好友”的聊天记录，三是11月2日一段音频的完整版。话题页对每条都附了“待核实原因”，前两条是因为无法联系到原始发布者，第三条是因为音频存在剪辑痕迹。</p>
+          </details>
+          <details>
+            <summary>金瓜奖的评委构成和投票方式是什么？</summary>
+            <p>评委组共7人，包括3名娱乐记者、2名内容平台编辑、1名高校传播学教师和1名往届金瓜奖得主。总决赛采用“评委打分（70%）+观众投票（30%）”的规则，观众投票在直播期间开放，每个账号限投1次。往届观众投票占比是20%，今年上调了10个百分点。</p>
+          </details>
+          <details>
+            <summary>第15期“跨圈联动”的选题范围有哪些限制？</summary>
+            <p>要求选取两个不同圈层（如电竞与娱乐圈、学术圈与网红圈）的交集事件，事件发生时间需在2026年9月1日至11月30日之间。不接受完全虚构的跨圈事件，演绎类作品必须标注“剧情演绎”。另有一条限制：同一选手不得连续两期使用同一事件作为素材，第14期已用过的事件不能在第15期重复使用。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="comments">
+        <div class="section-header">
+          <h2>观众和选手的评论</h2>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item"><div class="avatar">瓜</div><div class="comment-body"><div class="comment-name">瓜田里的猹</div><div class="comment-text">“夜光剧本2.0”那篇时间线作品确实细，连转发量级都标了，对比之下另一篇只写了“引发热议”四个字，差距明显。</div></div></div>
+          <div class="comment-item"><div class="avatar">深</div><div class="comment-body"><div class="comment-name">深夜不睡</div><div class="comment-text">第14期退回12件有点狠，不过仔细看被退的那些确实把营销号截图当事实用了，该退。</div></div></div>
+          <div class="comment-item"><div class="avatar">配</div><div class="comment-body"><div class="comment-name">配料表侦探</div><div class="comment-text">批次号那个对比做了三天，眼睛都快瞎了。没想到能拿周最佳，谢谢评委组。</div></div></div>
+          <div class="comment-item"><div class="avatar">路</div><div class="comment-body"><div class="comment-name">路过吃一口</div><div class="comment-text">金瓜奖观众投票占30%会不会变成拉票大战？去年20%的时候已经有人在超话里换票了。</div></div></div>
+          <div class="comment-item"><div class="avatar">剪</div><div class="comment-body"><div class="comment-name">剪辑课代表</div><div class="comment-text">《周末派对》那个逐帧对比，正片和花絮调换顺序的地方我重新看了三遍，确实有7处对不上。但作品里没说这算不算恶意剪辑，只标了时间点。</div></div></div>
+          <div class="comment-item"><div class="avatar">抽</div><div class="comment-body"><div class="comment-name">抽奖监督员</div><div class="comment-text">后援会抽奖那个追踪记录写到第8周就断更了，作者说素材被投诉下架了一部分，可惜。</div></div></div>
+          <div class="comment-item"><div class="avatar">猹</div><div class="comment-body"><div class="comment-name">猹猹观察</div><div class="comment-text">短剧剧组那个反转事件我改了两版，第一版被退回的时候还挺不服气，后来看了评委的标注示例，确实是我把上午的传闻钉太死了。</div></div></div>
+          <div class="comment-item"><div class="avatar">路</div><div class="comment-body"><div class="comment-name">路人甲不甲</div><div class="comment-text">每天刷一遍动态列表，比刷热搜有意思，至少这里会标“待核实”。</div></div></div>
+          <div class="comment-item"><div class="avatar">直</div><div class="comment-body"><div class="comment-name">直播蹲守员</div><div class="comment-text">三场直播数据对比那篇，在线人数曲线和销量曲线同步得太整齐了，主播解释是“整点活动”，但整点活动只做了两场，第三场没有。</div></div></div>
+          <div class="comment-item"><div class="avatar">吃</div><div class="comment-body"><div class="comment-name">吃瓜不吐皮</div><div class="comment-text">演绎类作品越来越难做，标了“剧情演绎”还是有人在评论区当真事传，作者管不了。</div></div></div>
+          <div class="comment-item"><div class="avatar">小</div><div class="comment-body"><div class="comment-name">小透明选手</div><div class="comment-text">第15期跨圈联动想写电竞和娱乐圈的交集，但查了一圈发现好多事件都卡在9月1日之前，选题范围能不能放宽点？</div></div></div>
+          <div class="comment-item"><div class="avatar">评</div><div class="comment-body"><div class="comment-name">评委组观察</div><div class="comment-text">11月6日那份内部简报里的标准差数据，能公开出来挺好的，至少选手知道分差拉在哪里。</div></div></div>
+          <div class="comment-item"><div class="avatar">无</div><div class="comment-body"><div class="comment-name">无所谓先生</div><div class="comment-text">比较想看综艺剪辑争议的后续，正片和花絮对比那篇之后好像没人跟进节目组有没有回应。</div></div></div>
+          <div class="comment-item"><div class="avatar">数</div><div class="comment-body"><div class="comment-name">数据派老张</div><div class="comment-text">信源标注强制之后，作品平均分上去了但标准差也大了，说明会做的和不会做的差距被放大了。这个结果不意外，只是以前被平均分掩盖了。</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="section-header">
+          <h2>相关资讯</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-date">2026-11-08</div>
+            <div class="news-content">
+              <div class="news-title">第14期初审退回12件作品，7件因信源层级混淆</div>
+              <div class="news-summary">评委组11月8日10时发布复审名单，退回的12件作品中有7件把旁白解读与视频画面混标为事实层，修改窗口开放至11月10日23:59。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-07</div>
+            <div class="news-content">
+              <div class="news-title">“夜光剧本2.0”话题页48小时访问量120万</div>
+              <div class="news-summary">赛事专题页11月5日20时上线该话题聚合，截至11月7日20时访问量达120万次，移动端占比82%，其中“待核实”条目点击率最高。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-06</div>
+            <div class="news-content">
+              <div class="news-title">“瓜田老猹”退赛声明发布，3件作品保留展示</div>
+              <div class="news-summary">11月6日14时，选手“瓜田老猹”在个人主页发布退赛声明，称近期素材涉及现实人际关系。其已提交的3件作品保留展示，不参与评奖。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-05</div>
+            <div class="news-content">
+              <div class="news-title">信源可核查性评分细则公布，权重上调至25%</div>
+              <div class="news-summary">11月5日直播中，评委组宣布今年评分标准中“信源可核查性”权重从15%上调至25%，每件作品须标注至少3个可溯源信息节点。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-04</div>
+            <div class="news-content">
+              <div class="news-title">投稿系统新增信源标签必填项，11月4日18时生效</div>
+              <div class="news-summary">新投稿须在编辑器中为每段事实标注“公开报道”“当事人声明”“网友爆料”等来源类型，未标注的投稿无法提交。</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-03</div>
+            <div class="news-content">
+              <div class="news-title">金瓜奖总决赛定档12月20日，奖金池12万元</div>
+              <div class="news-summary">总决赛设“最佳还原”“最佳分析”“最佳演绎”三个单项奖，观众投票占比从去年的20%上调至30%，直播期间每个账号限投1次。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="recommend">
+        <div class="section-header">
+          <h2>相关推荐</h2>
+        </div>
+        <div class="tag-index">
+          <a href="/#featured" class="tag">夜光剧本2.0时间线</a>
+          <a href="/#featured" class="tag">塌房预警四层标注</a>
+          <a href="/#featured" class="tag">选秀回锅肉争议复盘</a>
+          <a href="/#featured" class="tag">综艺剪辑逐帧对比</a>
+          <a href="/#featured" class="tag">直播带货数据拆解</a>
+          <a href="/#featured" class="tag">后援会抽奖追踪</a>
+          <a href="/#featured" class="tag">短剧剧组冲突演绎</a>
+          <a href="/#deep-dive" class="tag">信源分层判定标准</a>
+        </div>
+      </section>
+
+      <section class="section" id="timeline">
+        <div class="section-header">
+          <h2>赛程时间线</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><strong>2026-09-15</strong> 2026赛季开赛，首期主题“初代瓜农”</div>
+          <div class="timeline-item"><strong>2026-10-12</strong> 第10期“反转再反转”投稿开启</div>
+          <div class="timeline-item"><strong>2026-10-26</strong> 第12期“选秀回锅肉”周最佳揭晓</div>
+          <div class="timeline-item"><strong>2026-11-01</strong> “夜光剧本2.0”事件在社交平台发酵</div>
+          <div class="timeline-item"><strong>2026-11-04</strong> 投稿系统新增信源标签必填项</div>
+          <div class="timeline-item"><strong>2026-11-05</strong> “信源可核查性”评分细则公布</div>
+          <div class="timeline-item"><strong>2026-11-08</strong> 第14期初审名单公布，12件退回</div>
+          <div class="timeline-item"><strong>2026-12-01</strong> 第15期“跨圈联动”投稿截止</div>
+          <div class="timeline-item"><strong>2026-12-20</strong> 金瓜奖总决赛线上直播</div>
+        </div>
+      </section>
+
+      <section class="section" id="interaction">
+        <div class="section-header">
+          <h2>参与互动</h2>
+        </div>
+        <p style="font-size:14px;color:var(--text-2);margin-bottom:14px;">投稿通道持续开放，第15期“跨圈联动”从11月9日0时起接收作品。提交前请确认已标注至少3个信源节点，演绎类作品须在标题和正文开头同时标注“剧情演绎”。</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/#updates" class="btn btn-primary">提交作品</a>
+          <a href="/#comments" class="btn btn-outline">参与讨论</a>
+          <a href="/#faq" class="btn btn-outline">查看规则</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidebar-right" aria-label="辅助信息">
+      <div class="side-card">
+        <h3>热度榜单</h3>
+        <ul>
+          <li><span class="hot-num">1</span><a href="/#featured">夜光剧本2.0时间线</a></li>
+          <li><span class="hot-num">2</span><a href="/#featured">塌房预警四层拆解</a></li>
+          <li><span class="hot-num">3</span><a href="/#featured">选秀回锅肉争议复盘</a></li>
+          <li><span class="hot-num">4</span><a href="/#featured">短剧剧组冲突演绎</a></li>
+          <li><span class="hot-num">5</span><a href="/#featured">网红品牌翻车核查</a></li>
+          <li><span class="hot-num">6</span><a href="/#featured">综艺剪辑逐帧对比</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>搜索站内作品</h3>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="输入作品名或标签" aria-label="搜索作品">
+          <button id="searchBtn">查找</button>
+        </div>
+        <div class="search-feedback" id="searchFeedback"></div>
+      </div>
+      <div class="side-card">
+        <h3>近期更新</h3>
+        <ul>
+          <li><a href="/#updates">11-08 第14期初审结果</a></li>
+          <li><a href="/#updates">11-08 瓜田老猹退赛</a></li>
+          <li><a href="/#updates">11-07 话题页访问量120万</a></li>
+          <li><a href="/#updates">11-06 信源可核查性细则</a></li>
+          <li><a href="/#updates">11-05 第13期周最佳揭晓</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="font-weight:800;font-size:18px;color:#f4a261;margin-bottom:8px;">吃瓜爆料大赛聚集地</div>
+          <p>聚合2026赛季14期赛事的作品库、选手动态与信源标注规则，覆盖还原类、分析类、演绎类三条赛道，记录从9月15日开赛到12月20日总决赛的完整赛程。</p>
+        </div>
+        <div>
+          <h4>赛事内容</h4>
+          <ul>
+            <li><a href="/#featured">精选作品</a></li>
+            <li><a href="/#updates">最新动态</a></li>
+            <li><a href="/#deep-dive">深度解析</a></li>
+            <li><a href="/#timeline">赛程时间线</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>参与</h4>
+          <ul>
+            <li><a href="/#interaction">投稿作品</a></li>
+            <li><a href="/#comments">观众评论</a></li>
+            <li><a href="/#faq">常见问题</a></li>
+            <li><a href="/#interaction">互动交流</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>说明</h4>
+          <p>页面内容为示例数据，用于展示赛事信息聚合结构。作品名称、选手昵称、日期与热度数据均为演示用途，不指向真实个人或事件。</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 吃瓜爆料大赛聚集地 · 内容聚合示例</span>
+        <span>更新于2026-11-08 · 对应第14期初审名单与信源细则</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function() {
+      var hamburger = document.getElementById('hamburgerBtn');
+      var overlay = document.getElementById('mobileOverlay');
+      var mainNav = document.querySelector('.main-nav');
+      var mobileNav = null;
+
+      function closeMenu() {
+        if (mobileNav) { mobileNav.remove(); mobileNav = null; }
+        overlay.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburger.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          overlay.style.display = 'block';
+          if (!mobileNav) {
+            mobileNav = document.createElement('nav');
+            mobileNav.style.cssText = 'position:fixed;top:0;left:0;width:260px;height:100%;background:#fff;z-index:200;padding:24px 16px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;box-shadow:4px 0 20px rgba(0,0,0,.1);';
+            var closeBtn = document.createElement('button');
+            closeBtn.textContent = '✕ 关闭';
+            closeBtn.style.cssText = 'align-self:flex-end;font-size:14px;padding:6px 12px;margin-bottom:12px;color:var(--text-2);cursor:pointer;background:none;border:1px solid var(--line);border-radius:999px;';
+            closeBtn.addEventListener('click', closeMenu);
+            mobileNav.appendChild(closeBtn);
+            mainNav.querySelectorAll('a').forEach(function(link) {
+              var clone = link.cloneNode(true);
+              clone.style.cssText = 'display:block;padding:10px 12px;font-size:15px;border-radius:8px;color:var(--text);';
+              clone.addEventListener('click', function() { setTimeout(closeMenu, 150); });
+              mobileNav.appendChild(clone);
+            });
+            document.body.appendChild(mobileNav);
+          }
+        }
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      var backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        backBtn.classList.toggle('show', window.scrollY > window.innerHeight);
+      });
+      backBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      var searchInput = document.getElementById('searchInput');
+      var searchBtn = document.getElementById('searchBtn');
+      var feedback = document.getElementById('searchFeedback');
+
+      function doSearch() {
+        var q = searchInput.value.trim().toLowerCase();
+        if (!q) { feedback.textContent = '请输入作品名或标签关键词'; return; }
+        var cards = document.querySelectorAll('.card');
+        var found = 0;
+        cards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          if (text.indexOf(q) !== -1) { card.style.display = ''; found++; }
+          else { card.style.display = 'none'; }
+        });
+        if (found === 0) {
+          feedback.textContent = '未找到匹配作品，试试“时间线”“信源”“剪辑”等关键词';
+          cards.forEach(function(c) { c.style.display = ''; });
+        } else {
+          feedback.textContent = '找到 ' + found + ' 件相关作品';
+        }
+      }
+      searchBtn.addEventListener('click', doSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+      });
+
+      document.querySelectorAll('.sidebar-left nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          document.querySelectorAll('.sidebar-left nav a').forEach(function(l) { l.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "吃瓜爆料大赛聚集地",
+    "description": "聚合2026年吃瓜爆料大赛的参赛作品、选手动态、赛程规则与观众讨论。",
+    "url": "",
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "第14期“塌房预警”的投稿截止到什么时候？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "第14期投稿已于11月8日12:00截止，但被退回修改的12件作品可以在11月10日23:59前重新提交。逾期视为放弃复审资格。第15期“跨圈联动”从11月9日0时开放投稿，截止12月1日12:00。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "“信源可核查性”具体怎么扣分？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "每件作品需要标注至少3个可溯源信息节点，每个节点要写明来源类型、发布账号和发布时间。缺1个节点扣0.5分，最多扣3分。如果节点标注了但链接打不开或账号已注销，按缺失处理。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "“瓜田老猹”退赛会影响已提交作品的展示吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "三件作品保留在作品库中正常展示，观众可以浏览、评论和收藏，但不参与第14期复审和年度金瓜奖评选。赛事规则里没有“退赛删作品”的条款。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "“夜光剧本2.0”话题页里哪些信息被官方标为待核实？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "截至11月8日18时，标注“待核实”的有三条：某品牌方内部通知截图、所谓“双方共同好友”的聊天记录、11月2日一段音频的完整版。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "金瓜奖的评委构成和投票方式是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "评委组共7人，包括3名娱乐记者、2名内容平台编辑、1名高校传播学教师和1名往届金瓜奖得主。总决赛采用评委打分70%加观众投票30%的规则，观众投票在直播期间开放，每个账号限投1次。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "第15期“跨圈联动”的选题范围有哪些限制？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "要求选取两个不同圈层的交集事件，事件发生时间需在2026年9月1日至11月30日之间。不接受完全虚构的跨圈事件，演绎类作品必须标注“剧情演绎”。同一选手不得连续两期使用同一事件作为素材。"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+  </html>
