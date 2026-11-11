@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哔咔庇护所番番狗 - 漫画阅读目录与作品档案</title>
+<meta name="description" content="哔咔庇护所番番狗是聚合漫画条目、连载进度与阅读路径的内容门户，收录番番狗相关作品档案、章节更新、题材分类与读者评论，适合追连载和筛选新作的漫画读者。">
+<meta name="keywords" content="哔咔庇护所番番狗">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f0562e'/%3E%3Cpath d='M18 44V20h8l6 12 6-12h8v24h-7V31l-5 10h-4l-5-10v13z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --brand:#f0562e;
+  --brand-light:#ffe6dd;
+  --brand-mid:#f8a58c;
+  --brand-dark:#b93a1a;
+  --ink:#1d1a18;
+  --ink-2:#4a4340;
+  --ink-3:#847a75;
+  --bg:#fbf7f4;
+  --panel:#ffffff;
+  --line:#eadfd8;
+  --line-soft:#f3ebe6;
+  --radius-banner:14px;
+  --radius-card:12px;
+  --radius-btn:8px;
+  --radius-tag:999px;
+  --shadow:0 1px 2px rgba(60,35,20,.06),0 4px 14px rgba(60,35,20,.05);
+  --shadow-hover:0 2px 4px rgba(60,35,20,.08),0 10px 26px rgba(60,35,20,.10);
+  --maxw:1320px;
+  --sticky-h:104px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 .8em}
+ul,ol{margin:0 0 .8em;padding-left:1.2em}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ 吸顶公告条 + 页头 ============ */
+.sticky-top{position:sticky;top:0;z-index:60}
+.ticker{
+  background:linear-gradient(90deg,var(--brand-dark),var(--brand) 55%,#ff7a4d);
+  color:#fff;font-size:13px;
+}
+.ticker .wrap{display:flex;align-items:center;gap:14px;height:36px;overflow:hidden}
+.ticker-badge{
+  flex:none;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--radius-tag);padding:1px 10px;font-weight:700;letter-spacing:.02em;
+}
+.ticker-track{display:flex;gap:26px;white-space:nowrap;animation:tick 34s linear infinite}
+.ticker-item{opacity:.95}
+.ticker-item b{font-weight:700}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker .wrap{overflow-x:auto}}
+
+.site-head{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-inner{display:flex;align-items:center;gap:22px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand-text{font-size:19px;font-weight:800;letter-spacing:.01em;color:var(--ink)}
+.brand-text small{display:block;font-size:11px;font-weight:500;color:var(--ink-3);letter-spacing:.06em}
+.head-nav{display:flex;gap:4px;flex-wrap:wrap}
+.head-nav a{
+  padding:6px 11px;border-radius:var(--radius-btn);font-size:14px;color:var(--ink-2);
+  transition:background .16s,color .16s;
+}
+.head-nav a:hover,.head-nav a:focus-visible{background:var(--brand-light);color:var(--brand-dark)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{
+  width:210px;padding:8px 12px 8px 32px;border:1px solid var(--line);border-radius:var(--radius-btn);
+  background:#fff;font-size:13.5px;color:var(--ink);outline:none;transition:border-color .16s,box-shadow .16s;
+}
+.search-box input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(240,86,46,.14)}
+.search-box svg{position:absolute;left:9px;width:15px;height:15px;fill:none;stroke:var(--ink-3);stroke-width:2}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:none;
+  background:var(--brand);color:#fff;border-radius:var(--radius-btn);font-size:14px;font-weight:600;
+  transition:background .16s,transform .16s;white-space:nowrap;
+}
+.btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 15px;background:#fff;
+  border:1px solid var(--line);color:var(--ink-2);border-radius:var(--radius-btn);font-size:14px;
+  transition:border-color .16s,color .16s;
+}
+.btn-ghost:hover{border-color:var(--brand-mid);color:var(--brand-dark)}
+.hamburger{display:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius-btn);padding:7px 9px}
+.hamburger svg{width:18px;height:18px;stroke:var(--ink);stroke-width:2;fill:none}
+.search-empty{font-size:13px;color:var(--brand-dark);padding:6px 2px;display:none}
+
+/* ============ 首屏 ============ */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 420px at 82% -10%,#ffd9c9 0%,rgba(255,217,201,0) 62%),
+  radial-gradient(700px 380px at 4% 110%,#ffe9d2 0%,rgba(255,233,210,0) 60%),
+  linear-gradient(180deg,#fff8f4,#fbf7f4);
+  border-bottom:1px solid var(--line-soft)}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:42px;align-items:center;padding:46px 0 50px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-tag);padding:4px 12px;font-size:12.5px;color:var(--brand-dark);font-weight:600;margin-bottom:16px}
+.hero-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--brand);flex:none;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
+@media (prefers-reduced-motion:reduce){.hero-eyebrow i{animation:none}}
+.hero h1{font-size:clamp(30px,4vw,46px);letter-spacing:.01em;color:var(--ink)}
+.hero-lead{margin-top:16px;font-size:16px;line-height:1.85;color:var(--ink-2);max-width:44em}
+.hero-lead b{color:var(--brand-dark)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero-stats{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
+.hero-stats div{font-size:13px;color:var(--ink-3)}
+.hero-stats strong{display:block;font-size:21px;color:var(--ink);font-weight:800}
+.hero-art{position:relative;min-height:320px}
+.hero-art .art-card{position:absolute;border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-hover);border:3px solid #fff}
+.hero-art .a1{width:52%;left:0;top:6%;transform:rotate(-3.5deg)}
+.hero-art .a2{width:46%;right:0;top:0;transform:rotate(3deg)}
+.hero-art .a3{width:40%;right:12%;bottom:0;transform:rotate(-1.5deg)}
+.hero-art .art-card img{width:100%;height:auto;object-fit:cover}
+.hero-art .art-tag{
+  position:absolute;left:6%;bottom:8%;background:#fff;border-radius:var(--radius-tag);
+  padding:5px 13px;font-size:12.5px;font-weight:700;color:var(--brand-dark);box-shadow:var(--shadow);z-index:2}
+
+/* ============ 主体三栏 ============ */
+.layout{display:grid;grid-template-columns:180px minmax(0,1fr) 250px;gap:30px;padding:36px 0 10px;align-items:start}
+.channel-col{position:sticky;top:calc(var(--sticky-h) + 12px)}
+.channel-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:12px 8px;box-shadow:var(--shadow)}
+.channel-title{font-size:12px;letter-spacing:.1em;color:var(--ink-3);padding:4px 10px 8px;font-weight:700}
+.channel-list{list-style:none;margin:0;padding:0}
+.channel-list a{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  padding:7px 10px;border-radius:var(--radius-btn);font-size:13.5px;color:var(--ink-2);
+  transition:background .16s,color .16s;
+}
+.channel-list a span{font-size:11.5px;color:var(--ink-3)}
+.channel-list a:hover,.channel-list a:focus-visible{background:var(--brand-light);color:var(--brand-dark)}
+.channel-list a.active{background:var(--brand);color:#fff}
+.channel-list a.active span{color:rgba(255,255,255,.8)}
+
+.sec{margin-bottom:44px;scroll-margin-top:calc(var(--sticky-h) + 16px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.sec-head h2{font-size:21px;letter-spacing:.01em}
+.sec-sub{font-size:13px;color:var(--ink-3);margin:0 0 16px}
+.sec-link{font-size:13px;color:var(--brand-dark);font-weight:600;white-space:nowrap}
+.sec-link:hover{text-decoration:underline}
+
+/* 概览 */
+.overview{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:22px 24px;box-shadow:var(--shadow)}
+.overview p{color:var(--ink-2);font-size:14.6px;line-height:1.9}
+.overview p:last-child{margin-bottom:0}
+
+/* 卡片网格 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.card-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--line-soft)}
+.card-thumb img{width:100%;height:100%;object-fit:cover}
+.card-type{
+  position:absolute;left:9px;top:9px;background:rgba(29,26,24,.78);color:#fff;
+  font-size:11.5px;padding:2px 9px;border-radius:var(--radius-tag);font-weight:600;
+}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;flex:1}
+.card-body h3{font-size:15px;margin-bottom:6px}
+.card-note{font-size:13px;color:var(--ink-2);line-height:1.72;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.tag{
+  font-size:11.5px;color:var(--brand-dark);background:var(--brand-light);
+  border-radius:var(--radius-tag);padding:1.5px 9px;white-space:nowrap;
+}
+.card-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line)}
+.card-meta b{color:var(--brand-dark);font-weight:700}
+
+/* 紧凑列表 */
+.list-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden}
+.upd-list{list-style:none;margin:0;padding:0}
+.upd-list li{display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line-soft);align-items:flex-start}
+.upd-list li:last-child{border-bottom:none}
+.upd-list li:hover{background:#fffaf7}
+.upd-idx{
+  flex:none;width:22px;height:22px;border-radius:6px;background:var(--brand-light);color:var(--brand-dark);
+  font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:2px;
+}
+.upd-main{flex:1;min-width:0}
+.upd-main h3{font-size:14.5px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.upd-main h3 em{font-style:normal;font-size:11.5px;color:var(--brand-dark);background:var(--brand-light);border-radius:var(--radius-tag);padding:1px 8px;font-weight:600}
+.upd-main p{font-size:13px;color:var(--ink-2);margin:3px 0 0}
+.upd-time{flex:none;font-size:12px;color:var(--ink-3);white-space:nowrap;margin-top:3px}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat-item{
+  display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:13px 15px;box-shadow:var(--shadow);transition:border-color .16s,transform .16s;
+}
+.cat-item:hover{border-color:var(--brand-mid);transform:translateY(-2px)}
+.cat-item strong{display:block;font-size:14.5px;margin-bottom:3px}
+.cat-item small{font-size:12px;color:var(--ink-3);line-height:1.55;display:block}
+
+/* 深度解析 */
+.deep{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:26px 28px;box-shadow:var(--shadow)}
+.deep h3{font-size:16.5px;margin:26px 0 8px;padding-left:11px;border-left:4px solid var(--brand);line-height:1.4}
+.deep h3:first-of-type{margin-top:14px}
+.deep p{font-size:14.6px;line-height:1.92;color:var(--ink-2)}
+.deep ul{font-size:14.4px;line-height:1.9;color:var(--ink-2)}
+.deep li{margin-bottom:5px}
+.deep b{color:var(--ink)}
+.deep .quote{
+  border-left:3px solid var(--brand-mid);background:#fffaf7;padding:10px 16px;border-radius:0 var(--radius-btn) var(--radius-btn) 0;
+  font-size:14px;color:var(--ink-2);margin:12px 0;
+}
+.check-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0 6px}
+.check-table th,.check-table td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.check-table th{background:#fff6f2;font-weight:700;color:var(--ink);white-space:nowrap}
+.check-table td{color:var(--ink-2)}
+
+/* 阅读路径步骤 */
+.steps{display:grid;gap:12px;counter-reset:step}
+.step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:15px 18px 15px 54px;position:relative;box-shadow:var(--shadow);
+}
+.step::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:16px;top:15px;width:26px;height:26px;border-radius:8px;
+  background:var(--brand);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center;
+}
+.step h3{font-size:14.8px;margin-bottom:4px}
+.step p{font-size:13.5px;color:var(--ink-2);margin:0}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.faq summary{
+  list-style:none;cursor:pointer;padding:14px 44px 14px 18px;font-size:14.6px;font-weight:600;
+  position:relative;transition:background .16s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:19px;font-weight:400;color:var(--brand);line-height:1;
+}
+.faq details[open] summary::after{content:"−"}
+.faq summary:hover{background:#fffaf7}
+.faq summary:focus-visible{outline:2px solid var(--brand-mid);outline-offset:-2px}
+.faq .ans{padding:0 18px 15px;font-size:14px;color:var(--ink-2);line-height:1.85}
+.faq .ans p:last-child{margin-bottom:0}
+
+/* 评论 */
+.cmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:13px}
+.cmt{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:13px 15px;box-shadow:var(--shadow);font-size:13.5px;color:var(--ink-2);line-height:1.75;
+}
+.cmt-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#fff;background:var(--brand);
+}
+.cmt-name{font-size:13px;font-weight:700;color:var(--ink)}
+.cmt-src{font-size:11.5px;color:var(--ink-3);margin-left:auto}
+.cmt p{margin:0}
+.cmt .ref{color:var(--brand-dark);font-weight:600}
+
+/* 资讯 */
+.news-list{display:grid;gap:12px}
+.news{
+  display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:start;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:12px;box-shadow:var(--shadow);transition:border-color .16s;
+}
+.news:hover{border-color:var(--brand-mid)}
+.news img{width:120px;height:88px;object-fit:cover;border-radius:8px}
+.news h3{font-size:14.8px;margin-bottom:4px}
+.news .date{font-size:12px;color:var(--brand-dark);font-weight:600;margin-bottom:3px;display:block}
+.news p{font-size:13px;color:var(--ink-2);margin:0}
+
+/* 相关推荐 */
+.rel-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rel-tags a{
+  display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-tag);padding:6px 14px;font-size:13.2px;color:var(--ink-2);
+  box-shadow:var(--shadow);transition:all .16s;
+}
+.rel-tags a:hover{border-color:var(--brand);color:var(--brand-dark);background:#fff6f2}
+.rel-tags a i{font-style:normal;font-size:11.5px;color:var(--ink-3)}
+
+/* 榜单 */
+.rank{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden}
+.rank ol{list-style:none;margin:0;padding:0;counter-reset:rk}
+.rank li{
+  counter-increment:rk;display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;
+  padding:11px 16px;border-bottom:1px solid var(--line-soft);align-items:center;font-size:13.8px;
+}
+.rank li:last-child{border-bottom:none}
+.rank li::before{
+  content:counter(rk);font-weight:800;color:var(--ink-3);font-size:13px;text-align:center;
+}
+.rank li:nth-child(-n+3)::before{color:var(--brand)}
+.rank .rk-name{font-weight:600;color:var(--ink)}
+.rank .rk-name small{display:block;font-weight:400;color:var(--ink-3);font-size:12px;margin-top:1px}
+.rank .rk-val{font-size:12.5px;color:var(--brand-dark);font-weight:700;white-space:nowrap}
+
+/* 投稿互动 */
+.submit-panel{
+  background:linear-gradient(135deg,#fff6f2,#ffe9df);border:1px solid var(--brand-mid);
+  border-radius:var(--radius-banner);padding:22px 24px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;
+}
+.submit-panel h2{font-size:19px;margin-bottom:6px}
+.submit-panel p{font-size:13.6px;color:var(--ink-2);margin:0}
+.submit-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ============ 右侧栏 ============ */
+.side-col{display:grid;gap:18px;position:sticky;top:calc(var(--sticky-h) + 12px)}
+.side-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:14px 15px;box-shadow:var(--shadow)}
+.side-box h3{font-size:13.5px;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.side-box h3::before{content:"";width:4px;height:14px;border-radius:2px;background:var(--brand);flex:none}
+.side-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.side-list li{font-size:13px;color:var(--ink-2);line-height:1.6}
+.side-list li a{display:block}
+.side-list li a:hover{color:var(--brand-dark)}
+.side-list .num{color:var(--brand);font-weight:800;margin-right:5px;font-size:12px}
+.side-list small{display:block;color:var(--ink-3);font-size:11.5px}
+.side-tags{display:flex;flex-wrap:wrap;gap:6px}
+.side-tags a{font-size:12px;background:var(--line-soft);border-radius:var(--radius-tag);padding:3px 10px;color:var(--ink-2)}
+.side-tags a:hover{background:var(--brand-light);color:var(--brand-dark)}
+.side-note{font-size:12.4px;color:var(--ink-3);line-height:1.7}
+.side-note b{color:var(--ink-2)}
+
+/* ============ 页尾 ============ */
+.site-foot{background:#241d19;color:#cfc3bc;margin-top:26px;padding:38px 0 22px;font-size:13.4px}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:30px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .brand-text{color:#fff}
+.foot-brand .brand-text small{color:#a2938b}
+.foot-desc{margin-top:12px;line-height:1.85;color:#b3a49c;max-width:30em}
+.foot-col h4{font-size:13.5px;color:#fff;margin-bottom:10px}
+.foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.foot-col a{color:#b3a49c}
+.foot-col a:hover{color:#ffb49a}
+.foot-bottom{padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#8d7f78;font-size:12.5px}
+.foot-bottom p{margin:0}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:20px;bottom:24px;z-index:70;width:42px;height:42px;border-radius:50%;
+  background:var(--brand);color:#fff;border:none;display:none;place-items:center;
+  box-shadow:var(--shadow-hover);transition:background .16s,transform .16s;
+}
+.to-top.show{display:grid}
+.to-top:hover{background:var(--brand-dark);transform:translateY(-2px)}
+.to-top svg{width:17px;height:17px;stroke:#fff;stroke-width:2.4;fill:none}
+
+/* 遮罩 */
+.overlay{position:fixed;inset:0;background:rgba(29,26,24,.45);z-index:80;display:none}
+.overlay.show{display:block}
+
+/* ============ 响应式 ============ */
+@media (max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .side-col{grid-column:1/-1;position:static;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+}
+@media (max-width:1024px){
+  :root{--sticky-h:100px}
+  .head-nav{display:none}
+  .hamburger{display:inline-flex}
+  .head-nav.open{
+    display:flex;position:fixed;left:0;right:0;top:var(--sticky-h);background:#fff;
+    border-bottom:1px solid var(--line);padding:12px 18px;gap:8px;z-index:79;
+    flex-wrap:wrap;box-shadow:var(--shadow-hover);
+  }
+  .layout{grid-template-columns:minmax(0,1fr);}
+  .channel-col{position:static;order:-1}
+  .channel-box{padding:10px}
+  .channel-list{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+  .channel-list a{white-space:nowrap;flex:none}
+  .channel-list a span{display:none}
+  .hero-inner{grid-template-columns:minmax(0,1fr);gap:26px;padding:34px 0 40px}
+  .hero-art{min-height:250px;max-width:520px}
+}
+@media (max-width:740px){
+  :root{--sticky-h:96px}
+  .wrap{padding:0 15px}
+  .head-inner{height:60px;gap:12px}
+  .brand-text{font-size:16.5px}
+  .brand-text small{display:none}
+  .search-box input{width:130px}
+  .search-box{display:none}
+  .hero h1{font-size:29px}
+  .hero-lead{font-size:14.6px}
+  .hero-stats{gap:18px}
+  .hero-art{min-height:200px}
+  .hero-art .art-tag{font-size:11.5px;padding:4px 10px}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .card-body{padding:10px}
+  .card-body h3{font-size:13.8px}
+  .card-note{font-size:12.4px}
+  .upd-list li{padding:11px 13px;gap:10px}
+  .upd-main h3{font-size:13.6px}
+  .upd-main p{font-size:12.4px}
+  .upd-time{font-size:11.5px}
+  .deep{padding:18px 16px}
+  .deep p,.deep ul{font-size:14px}
+  .news{grid-template-columns:84px minmax(0,1fr);gap:11px}
+  .news img{width:84px;height:66px}
+  .cmt-grid{grid-template-columns:minmax(0,1fr)}
+  .submit-panel{grid-template-columns:minmax(0,1fr);padding:18px}
+  .foot-top{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+  .check-table{display:block;overflow-x:auto;white-space:nowrap}
+  .to-top{right:14px;bottom:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="ticker" aria-label="更新公告">
+    <div class="wrap">
+      <span class="ticker-badge">哔咔庇护所番番狗</span>
+      <div class="ticker-track">
+        <span class="ticker-item"><b>11月8日</b> 《夜航便利屋》第 47 话更新，主线进入冬季篇</span>
+        <span class="ticker-item"><b>11月7日</b> 新增 12 部「都市奇幻」条目，含 3 部首更</span>
+        <span class="ticker-item"><b>11月6日</b> 番番狗作者访谈上线，谈到第 12 话分镜改动</span>
+        <span class="ticker-item"><b>11月8日</b> 《夜航便利屋》第 47 话更新，主线进入冬季篇</span>
+        <span class="ticker-item"><b>11月7日</b> 新增 12 部「都市奇幻」条目，含 3 部首更</span>
+        <span class="ticker-item"><b>11月6日</b> 番番狗作者访谈上线，谈到第 12 话分镜改动</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="/#top" aria-label="哔咔庇护所番番狗 首页">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="15" fill="#f0562e"/>
+          <path d="M18 45V19h9l5 11 5-11h9v26h-7V31l-4.5 9h-5L25 31v14z" fill="#fff"/>
+          <circle cx="49" cy="17" r="5" fill="#ffd3c2"/>
+        </svg>
+        <span class="brand-text">哔咔庇护所番番狗<small>MANGA SHELTER</small></span>
+      </a>
+      <nav class="head-nav" id="headNav" aria-label="主导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">精选条目</a>
+        <a href="/#updates">章节更新</a>
+        <a href="/#cats">题材分类</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">阅读路径</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#rank">人气榜</a>
+      </nav>
+      <div class="head-tools">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+          <input type="search" id="searchInput" placeholder="搜条目 / 题材 / 作者" aria-label="站内条目搜索">
+        </div>
+        <a class="btn-ghost" href="/#submit">投稿</a>
+        <button class="hamburger" id="hamburger" aria-label="展开导航菜单" aria-expanded="false" aria-controls="headNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="hero-eyebrow"><i></i>11月8日更新 · 连载 47 话同步</span>
+        <h1>哔咔庇护所番番狗</h1>
+        <p class="hero-lead">
+          聚合<b>番番狗</b>及其同类型都市奇幻、日常单元剧漫画的条目档案：连载进度、单话看点、作者访谈、题材标签与读者口碑分列在不同位置。追更的人可以按更新日排，找新作的人可以从题材和首话完成度切入。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/#updates">看今日更新 9 条</a>
+          <a class="btn-ghost" href="/#picks">浏览精选条目</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>186</strong>收录条目</div>
+          <div><strong>32</strong>在更连载</div>
+          <div><strong>11月8日</strong>最近同步</div>
+          <div><strong>9</strong>今日更新章节</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-card a1"><img src="https://picsum.photos/seed/fanfangou47/400/600" width="400" height="600" alt="《夜航便利屋》第47话冬季篇封面" loading="lazy"></div>
+        <div class="art-card a2"><img src="https://picsum.photos/seed/bikasanctuary02/400/300" width="400" height="300" alt="都市奇幻题材条目《雨巷邮差》主视觉" loading="lazy"></div>
+        <div class="art-card a3"><img src="https://picsum.photos/seed/mangashelter09/400/300" width="400" height="300" alt="日常单元剧《二楼面包房》场景插画" loading="lazy"></div>
+        <span class="art-tag">第 47 话 · 11月8日 09:20 更新</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+
+    <!-- 左频道栏 -->
+    <aside class="channel-col" aria-label="频道索引">
+      <div class="channel-box">
+        <p class="channel-title">频道索引</p>
+        <ul class="channel-list" id="channelList">
+          <li><a href="/#overview" class="active">领域概览<span>01</span></a></li>
+          <li><a href="/#picks">精选条目<span>02</span></a></li>
+          <li><a href="/#updates">章节更新<span>03</span></a></li>
+          <li><a href="/#cats">题材分类<span>04</span></a></li>
+          <li><a href="/#deep">深度解析<span>05</span></a></li>
+          <li><a href="/#guide">阅读路径<span>06</span></a></li>
+          <li><a href="/#faq">常见问题<span>07</span></a></li>
+          <li><a href="/#comments">读者评论<span>08</span></a></li>
+          <li><a href="/#news">相关资讯<span>09</span></a></li>
+          <li><a href="/#rank">人气榜<span>10</span></a></li>
+          <li><a href="/#related">相关推荐<span>11</span></a></li>
+          <li><a href="/#submit">投稿互动<span>12</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <div class="main-col">
+
+      <!-- 01 概览 -->
+      <section class="sec" id="overview">
+        <div class="sec-head"><h2>都市奇幻与日常单元剧的当前版图</h2></div>
+        <p class="sec-sub">按题材、连载状态、单话完成度三条线看这一批条目</p>
+        <div class="overview">
+          <p>番番狗所属的这类作品，圈内习惯叫「都市奇幻日常」：背景放在便利店、旧书店、深夜食堂、公寓楼这类具体场所，超自然元素只作为调味，主线往往藏在一件件小事里。它的阅读门槛低，但连载到三十话以后，能不能留住人取决于两件事——单元剧的切口是否持续翻新，主线埋线有没有在合理周期里回收。</p>
+          <p>2026 年下半年这一批在更作品里，<b>《夜航便利屋》</b>走的是「每话一个委托」结构，第 40 话后开始收束冬季主线；<b>《雨巷邮差》</b>偏向悬疑，单话信息量大，适合一次看三话；<b>《二楼面包房》</b>几乎没有超自然设定，靠人物关系推进，属于慢热型。三部作品的更新节奏差异明显：前者周更固定周三、周五，后者隔周双更，第三部则是月更两话。</p>
+          <p>读者端的分化也很清楚。追更党在意的是「这一话有没有推进主线」，补番党更关心「前二十话能不能撑住」。所以条目档案里除了标签，还把首话完成度、主线回收周期、单话平均页数单独列出来，比单纯给一个总评分更有参考价值。</p>
+        </div>
+      </section>
+
+      <!-- 02 精选 -->
+      <section class="sec" id="picks">
+        <div class="sec-head"><h2>精选条目：值得先看的三类作品</h2><a class="sec-link" href="/#rank">查看人气榜 →</a></div>
+        <p class="sec-sub">每张卡片附类型、看点与更新状态，共 9 条</p>
+        <div class="card-grid" id="pickGrid">
+
+          <article class="card" data-key="夜航便利屋 都市奇幻 单元剧 冬季篇">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/yehang47/400/300" width="400" height="300" alt="《夜航便利屋》第47话冬季篇场景" loading="lazy"><span class="card-type">周更连载</span></div>
+            <div class="card-body">
+              <h3>夜航便利屋</h3>
+              <p class="card-note">深夜便利店接各类「非人委托」，第 47 话起进入冬季篇，主线从店长失踪转向旧仓库线索。单话 24 页左右，周三、周五更新。</p>
+              <div class="tag-row"><span class="tag">都市奇幻</span><span class="tag">单元剧</span><span class="tag">主线收束</span></div>
+              <div class="card-meta"><span>热度 <b>9.4</b></span><span>更新至 47 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="雨巷邮差 悬疑 都市 双更">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/yuxiangyoucha/400/300" width="400" height="300" alt="《雨巷邮差》雨夜送信场景插画" loading="lazy"><span class="card-type">隔周双更</span></div>
+            <div class="card-body">
+              <h3>雨巷邮差</h3>
+              <p class="card-note">邮差送出的信件会改变收件人记忆，第 22 话揭出「退信人」身份。单话信息密度高，建议连看三话再判断走向。</p>
+              <div class="tag-row"><span class="tag">悬疑</span><span class="tag">记忆设定</span><span class="tag">慢热</span></div>
+              <div class="card-meta"><span>热度 <b>8.9</b></span><span>更新至 24 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="二楼面包房 日常 人物关系 月更">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/erloumianbao/400/300" width="400" height="300" alt="《二楼面包房》店内柜台与顾客" loading="lazy"><span class="card-type">月更两话</span></div>
+            <div class="card-body">
+              <h3>二楼面包房</h3>
+              <p class="card-note">没有超自然设定，靠老板娘与三位常客的往来推进，第 18 话的「雨天不打烊」是口碑分水岭。适合睡前看一话。</p>
+              <div class="tag-row"><span class="tag">日常</span><span class="tag">治愈</span><span class="tag">人物群像</span></div>
+              <div class="card-meta"><span>热度 <b>8.6</b></span><span>更新至 19 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="钟楼第七层 都市奇幻 建筑 谜题">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/zhonglou7/400/300" width="400" height="300" alt="《钟楼第七层》钟楼内部结构图" loading="lazy"><span class="card-type">周更</span></div>
+            <div class="card-body">
+              <h3>钟楼第七层</h3>
+              <p class="card-note">整栋钟楼每层对应一段城市记忆，主角逐层往上走。谜题设计扎实，第 9 话的「停摆十分钟」被多次讨论。</p>
+              <div class="tag-row"><span class="tag">解谜</span><span class="tag">城市记忆</span><span class="tag">短篇集结构</span></div>
+              <div class="card-meta"><span>热度 <b>8.8</b></span><span>更新至 15 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="猫町派出所 轻喜剧 群像 妖怪">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/maotingpcs/400/300" width="400" height="300" alt="《猫町派出所》夜间巡逻场景" loading="lazy"><span class="card-type">周更</span></div>
+            <div class="card-body">
+              <h3>猫町派出所</h3>
+              <p class="card-note">派出所民警处理「半妖」居民的日常纠纷，笑点密集，单话独立。第 30 话起加入一条跨话小案子，节奏略变。</p>
+              <div class="tag-row"><span class="tag">轻喜剧</span><span class="tag">妖怪</span><span class="tag">单元剧</span></div>
+              <div class="card-meta"><span>热度 <b>8.5</b></span><span>更新至 33 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="旧书店的闭店时间 治愈 书店 短篇">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/jiushudian/400/300" width="400" height="300" alt="《旧书店的闭店时间》书架与台灯" loading="lazy"><span class="card-type">不定期</span></div>
+            <div class="card-body">
+              <h3>旧书店的闭店时间</h3>
+              <p class="card-note">每话一位来卖旧书的客人，书里夹着的东西推动故事。第 6 话「夹在词典里的车票」被读者反复引用。</p>
+              <div class="tag-row"><span class="tag">治愈</span><span class="tag">短篇集</span><span class="tag">书店</span></div>
+              <div class="card-meta"><span>热度 <b>8.7</b></span><span>更新至 11 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="末班车后的三站 悬疑 地铁 都市传说">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/mobanche/400/300" width="400" height="300" alt="《末班车后的三站》地铁车厢与站台" loading="lazy"><span class="card-type">周更</span></div>
+            <div class="card-body">
+              <h3>末班车后的三站</h3>
+              <p class="card-note">末班地铁多出的三站，每站对应一位乘客的心结。前 5 话铺设定，第 6 话开始每话收一个，节奏明显加快。</p>
+              <div class="tag-row"><span class="tag">都市传说</span><span class="tag">悬疑</span><span class="tag">短章结构</span></div>
+              <div class="card-meta"><span>热度 <b>8.4</b></span><span>更新至 13 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="洗衣店的午夜客人 都市奇幻 治愈 单元">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/xiyidian/400/300" width="400" height="300" alt="《洗衣店的午夜客人》夜间洗衣店灯光" loading="lazy"><span class="card-type">周更</span></div>
+            <div class="card-body">
+              <h3>洗衣店的午夜客人</h3>
+              <p class="card-note">午夜自助洗衣店里，洗掉的衣物会带走一段记忆。设定轻巧，单话收束干净，适合零散时间看。</p>
+              <div class="tag-row"><span class="tag">治愈</span><span class="tag">记忆设定</span><span class="tag">日常</span></div>
+              <div class="card-meta"><span>热度 <b>8.3</b></span><span>更新至 21 话</span></div>
+            </div>
+          </article>
+
+          <article class="card" data-key="天台气象站 青春 校园 奇幻">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/tiantaiqixiang/400/300" width="400" height="300" alt="《天台气象站》天台观测设备" loading="lazy"><span class="card-type">隔周</span></div>
+            <div class="card-body">
+              <h3>天台气象站</h3>
+              <p class="card-note">高中气象社能预测「情绪天气」，把校园题材和轻奇幻接在一起。前 8 话偏群像，第 9 话后主角线清晰。</p>
+              <div class="tag-row"><span class="tag">校园</span><span class="tag">青春</span><span class="tag">轻奇幻</span></div>
+              <div class="card-meta"><span>热度 <b>8.2</b></span><span>更新至 17 话</span></div>
+            </div>
+          </article>
+
+        </div>
+        <p class="search-empty" id="searchEmpty">没有匹配的条目，换个关键词试试，比如「悬疑」「面包房」或作者名。</p>
+      </section>
+
+      <!-- 03 更新 -->
+      <section class="sec" id="updates">
+        <div class="sec-head"><h2>11月6日至8日章节更新</h2></div>
+        <p class="sec-sub">按发布时间倒序，共 9 条</p>
+        <div class="list-panel">
+          <ul class="upd-list">
+            <li><span class="upd-idx">1</span><div class="upd-main"><h3>夜航便利屋 <em>第 47 话</em></h3><p>冬季篇第一话，店长失踪第 9 天，主角在旧仓库找到一张 2019 年的进货单。</p></div><span class="upd-time">今天 09:20</span></li>
+            <li><span class="upd-idx">2</span><div class="upd-main"><h3>雨巷邮差 <em>第 24 话</em></h3><p>「退信人」首次露面，交代了第 18 话那封未署名的信为何没有寄出。</p></div><span class="upd-time">今天 08:05</span></li>
+            <li><span class="upd-idx">3</span><div class="upd-main"><h3>猫町派出所 <em>第 33 话</em></h3><p>跨话小案子收尾，副所长调职的伏笔落地，结尾留了一个新角色剪影。</p></div><span class="upd-time">昨天 21:40</span></li>
+            <li><span class="upd-idx">4</span><div class="upd-main"><h3>钟楼第七层 <em>第 15 话</em></h3><p>第五层「旧电影院」开放，谜题从时间线转到座位号，单话 31 页。</p></div><span class="upd-time">昨天 18:12</span></li>
+            <li><span class="upd-idx">5</span><div class="upd-main"><h3>末班车后的三站 <em>第 13 话</em></h3><p>第二位乘客的心结收束，站台广播词与第 3 话出现的那句完全一致。</p></div><span class="upd-time">11月7日 14:00</span></li>
+            <li><span class="upd-idx">6</span><div class="upd-main"><h3>洗衣店的午夜客人 <em>第 21 话</em></h3><p>一件没人认领的校服，把两条原本无关的客人线接上。</p></div><span class="upd-time">11月7日 10:30</span></li>
+            <li><span class="upd-idx">7</span><div class="upd-main"><h3>天台气象站 <em>第 17 话</em></h3><p>气象社换届，主角从观测员变成社长，情绪天气的判定规则随之改写。</p></div><span class="upd-time">11月6日 20:15</span></li>
+            <li><span class="upd-idx">8</span><div class="upd-main"><h3>二楼面包房 <em>第 19 话</em></h3><p>月更第二话，老板娘与老顾客的一通电话，讲清了第 12 话缺席的原因。</p></div><span class="upd-time">11月6日 16:45</span></li>
+            <li><span class="upd-idx">9</span><div class="upd-main"><h3>旧书店的闭店时间 <em>第 11 话</em></h3><p>客人带来一本没有版权页的旧书，书中夹着 1997 年的借书卡。</p></div><span class="upd-time">11月6日 11:20</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 04 分类 -->
+      <section class="sec" id="cats">
+        <div class="sec-head"><h2>按题材与阅读场景分类</h2></div>
+        <p class="sec-sub">8 个入口，点击跳转到对应频道定位</p>
+        <div class="cat-grid">
+          <a class="cat-item" href="/#picks"><strong>都市奇幻</strong><small>超自然设定落在具体场所，如便利店、邮局、洗衣店</small></a>
+          <a class="cat-item" href="/#picks"><strong>日常单元剧</strong><small>单话独立收束，适合零散时间，主线推进慢</small></a>
+          <a class="cat-item" href="/#picks"><strong>记忆与身份设定</strong><small>信件、衣物、旧物承载记忆，规则清晰可推演</small></a>
+          <a class="cat-item" href="/#picks"><strong>都市传说悬疑</strong><small>地铁、钟楼、末班车，信息密度高，适合连看</small></a>
+          <a class="cat-item" href="/#picks"><strong>治愈慢节奏</strong><small>无强冲突，靠人物关系与场景细节推进</small></a>
+          <a class="cat-item" href="/#picks"><strong>解谜短篇集</strong><small>每话一个谜题，跨话有隐藏线索，重读价值高</small></a>
+          <a class="cat-item" href="/#picks"><strong>校园轻奇幻</strong><small>社团、气象、观测，青春线与设定线并行</small></a>
+          <a class="cat-item" href="/#picks"><strong>群像轻喜剧</strong><small>多角色轮转，笑点密集，单话门槛最低</small></a>
+        </div>
+      </section>
+
+      <!-- 05 深度解析 -->
+      <section class="sec" id="deep">
+        <div class="sec-head"><h2>同一设定，为什么读感差这么多</h2></div>
+        <p class="sec-sub">从单话结构、规则边界、主线回收三处拆开看</p>
+        <div class="deep">
+          <p>「记忆会被旧物带走」「信件能改写记忆」「末班车多出三站」——这三条设定在 2026 年这批在更作品里出现过不止一次。设定本身不新，读感差异基本落在写法上，跟题材标签关系不大。</p>
+
+          <h3>单话的切口宽度，决定要不要连看</h3>
+          <p>《夜航便利屋》第 47 话把切口收得很窄：只写一件委托、一个地点、两个人。读者一话之内能拿到完整信息，缺点是主线推进慢，第 44 到 47 话加起来只挪动了一个线索。</p>
+          <p>《雨巷邮差》第 22 到 24 话则相反，一话塞进三条信息线：退信人身份、邮局旧档案、主角妹妹的去向。连看三话体感很爽，单看第 23 话会觉得断在半截。<b>切口宽度没有优劣，但不能和更新频率打架。</b>隔周双更的作品适合宽切口，周更作品把切口拉到三条线，读者容易在下一话之前忘掉其中一条。</p>
+          <div class="quote">一个可核对的对照：第 47 话正文 24 页、出现角色 4 名；第 24 话正文 29 页、出现角色 7 名、回忆框 12 格。页数差距不大，信息条数差了将近一倍。</div>
+
+          <h3>规则边界写不写清，直接影响谜题可信度</h3>
+          <p>《洗衣店的午夜客人》第 21 话把规则讲得很死：只有无人认领的衣物才会带走记忆，认领后记忆回流。规则一旦写死，读者就能自己推演，第 21 话那件校服的归属才成立。</p>
+          <p>《末班车后的三站》前 5 话的规则偏模糊：多出的三站按什么顺序出现、乘客能不能中途下车，都没有交代。这带来两个后果——第 6 话之后每话收一个乘客，读者难以预判下一站会是谁；第 12 话出现「乘客自己下车」的情节时，评论区大量质疑「规则前后不一致」。</p>
+          <p>把判断拆成可核对的三项，比笼统说「设定严谨」有用：</p>
+          <table class="check-table">
+            <thead><tr><th>核对项</th><th>《洗衣店》第 21 话</th><th>《末班车》第 12 话</th></tr></thead>
+            <tbody>
+              <tr><td>规则首次交代位置</td><td>第 2 话第 9 页</td><td>第 5 话末页</td></tr>
+              <tr><td>是否给出例外条件</td><td>给了：认领即回流</td><td>未给</td></tr>
+              <tr><td>例外是否被后文使用</td><td>第 21 话使用</td><td>第 12 话临时新增</td></tr>
+            </tbody>
+          </table>
+          <p>第三行是关键。规则可以晚交代，但例外条件如果是在需要它的时候才补，读者会把它读成「作者临时改设定」，而不是「伏笔」。</p>
+
+          <h3>主线回收周期，比埋线数量更能说明问题</h3>
+          <p>《钟楼第七层》第 9 话埋下的「停摆十分钟」，到第 15 话才第一次被提起，间隔 6 话，属于可接受范围。同一部作品在第 4 话埋的「第七层钥匙」到第 15 话仍未回收，间隔 11 话，评论区已经出现「忘了这条线」的声音。</p>
+          <p>《夜航便利屋》的处理更稳：店长失踪这条主线从第 40 话开始，每 2 到 3 话给一次新线索，第 47 话落到旧仓库进货单。间隔短，读者不需要回翻。</p>
+          <ul>
+            <li>间隔 2—3 话：读者记忆新鲜，适合周更作品。</li>
+            <li>间隔 4—6 话：需要一次明确提示，比如重复出现同一物件。</li>
+            <li>间隔 8 话以上：除非有独立的追线索索引，否则容易被读成断线。</li>
+          </ul>
+          <p>《二楼面包房》走的是另一条路：它几乎没有主线，第 18 话「雨天不打烊」之所以成为口碑分水岭，是因为把前 17 话里三位常客的出现顺序重新串了一遍，属于「后置回收」。这种写法对单话质量要求高，一旦某话平淡，读者会直接掉队。</p>
+          <p>结论可以很具体：<b>设定相似的作品，读感差异主要来自规则是否写死、例外是否提前给、主线回收间隔是否稳定。</b>这三项都能在条目档案里核对，不必依赖整体印象分。</p>
+        </div>
+      </section>
+
+      <!-- 06 阅读路径 -->
+      <section class="sec" id="guide">
+        <div class="sec-head"><h2>从哪一话开始，怎么判断值不值得追</h2></div>
+        <p class="sec-sub">四条顺序建议，按阅读目的分</p>
+        <div class="steps">
+          <div class="step">
+            <h3>先按更新频率筛，不按评分筛</h3>
+            <p>周更作品适合每天看一话，月更作品适合攒三话再看。评分 8.9 的隔周双更作品，单话信息量大，零散时间看容易断片；评分 8.3 的周更作品反而更适合通勤看。</p>
+          </div>
+          <div class="step">
+            <h3>用第 6 到第 9 话判断走向</h3>
+            <p>前 5 话通常在铺设定，第 6 话之后才见作者的真实节奏。《洗衣店》第 6 话、《末班车》第 6 话、《钟楼》第 9 话，都是节奏明显变化的节点，从这几话切入比从第 1 话硬啃更省时间。</p>
+          </div>
+          <div class="step">
+            <h3>对比同设定的两部作品，看规则写法</h3>
+            <p>同样是「旧物带走记忆」，《洗衣店》把例外条件写在第 2 话，《末班车》把例外留到第 12 话临时补。想判断一部作品能不能长期追，先看它的规则有没有在第 10 话之前写死。</p>
+          </div>
+          <div class="step">
+            <h3>看评论区有没有指向具体话数的讨论</h3>
+            <p>「第 18 话雨天不打烊」「第 9 话停摆十分钟」这类带话数的讨论，比笼统的「好看」更有参考价值。反过来，如果评论区只有情绪表达、没有具体话数，说明读者还没形成稳定讨论点。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 FAQ -->
+      <section class="sec" id="faq">
+        <div class="sec-head"><h2>读者常问的六个问题</h2></div>
+        <p class="sec-sub">围绕条目、规则与连载节奏</p>
+        <div class="faq">
+          <details>
+            <summary>番番狗和《夜航便利屋》是什么关系？</summary>
+            <div class="ans"><p>番番狗是《夜航便利屋》的作者署名，也是这批都市奇幻日常作品里被引用最多的一个笔名。署名出现在单行本版权页与每话末页，第 47 话末页仍保留该署名。</p></div>
+          </details>
+          <details>
+            <summary>《雨巷邮差》第 22 话的「退信人」到底是谁？</summary>
+            <div class="ans"><p>第 24 话给出明确指向：退信人是邮局旧档案里 2019 年那位未署名的分拣员，与主角妹妹的去向在同一条时间线上。第 18 话那封没寄出的信是同一人所写，第 24 话第 14 页有对照画面。</p></div>
+          </details>
+          <details>
+            <summary>《末班车后的三站》规则前后矛盾吗？</summary>
+            <div class="ans"><p>矛盾点在例外条件。第 5 话只说明「多出三站」，没写乘客能否中途下车；第 12 话出现乘客自行下车，属于临时新增规则。第 13 话用站台广播词做了补救，但没解释为什么第 5 话不写。</p></div>
+          </details>
+          <details>
+            <summary>月更的《二楼面包房》值得追吗？</summary>
+            <div class="ans"><p>看阅读目的。它没有主线，靠人物关系推进，第 18 话「雨天不打烊」把前 17 话的常客出现顺序重串了一遍，属于后置回收。喜欢单话独立、慢节奏的读者适配度高；追主线推进的读者会觉得慢。</p></div>
+          </details>
+          <details>
+            <summary>《钟楼第七层》的「第七层钥匙」什么时候回收？</summary>
+            <div class="ans"><p>截至第 15 话仍未回收，间隔 11 话。第 15 话第五层「旧电影院」开放时提到过一次钥匙形状的座位号，但没有直接对应。按目前节奏，最晚应在第 18 话前后给明确线索。</p></div>
+          </details>
+          <details>
+            <summary>这几部作品的单话页数大概多少？</summary>
+            <div class="ans"><p>《夜航便利屋》24 页左右，《雨巷邮差》28 到 31 页，《钟楼第七层》30 页上下，《二楼面包房》20 页以内。页数差距会影响单话信息量，隔周双更的作品通常页数更多。</p></div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 08 评论 -->
+      <section class="sec" id="comments">
+        <div class="sec-head"><h2>读者评论：具体到话数的讨论</h2></div>
+        <p class="sec-sub">16 条，来自条目讨论区与更新提醒</p>
+        <div class="cmt-grid">
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">柚</span><span class="cmt-name">柚子汽水</span><span class="cmt-src">夜航便利屋</span></div><p>第 47 话那张进货单日期是 2019 年，跟第 41 话店长手机里的日历对上了，这条线埋得挺稳。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">半</span><span class="cmt-name">半页书签</span><span class="cmt-src">雨巷邮差</span></div><p>连看 22 到 24 话，信息量是真的大，但第 23 话单独看完全不知道在讲什么，断在半截。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">阿</span><span class="cmt-name">阿岚不加班</span><span class="cmt-src">末班车</span></div><p>第 12 话乘客自己下车那段，我回翻第 5 话看了三遍也没找到规则依据，评论区吵得挺凶。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">冬</span><span class="cmt-name">冬眠的猫</span><span class="cmt-src">二楼面包房</span></div><p>雨天不打烊那话我看哭了，倒不是剧情多煽情，是前面那些常客一个个重新出现的时候突然反应过来。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">九</span><span class="cmt-name">九号站台</span><span class="cmt-src">钟楼第七层</span></div><p>第七层钥匙到 15 话还没回收，作者是不是忘了……第 4 话埋的，现在 15 话了。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">麦</span><span class="cmt-name">麦冬茶</span><span class="cmt-src">洗衣店</span></div><p>规则写死这点很加分。第 2 话就说了认领即回流，第 21 话那件校服才立得住。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">布</span><span class="cmt-name">布丁不加糖</span><span class="cmt-src">猫町派出所</span></div><p>33 话副所长调职那段，前面 30 话的伏笔全串起来了，笑归笑，收线一点不含糊。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">南</span><span class="cmt-name">南风过巷</span><span class="cmt-src">旧书店</span></div><p>第 6 话夹在词典里的车票，我到现在还记得是哪一年的，这种细节比大场面管用。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">小</span><span class="cmt-name">小满日记</span><span class="cmt-src">天台气象站</span></div><p>17 话换届之后节奏变了，主角当社长以后情绪天气的判定规则改了一次，有点跟不上。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">三</span><span class="cmt-name">三十七度</span><span class="cmt-src">夜航便利屋</span></div><p>周更两话是真的稳，周三周五准点。就怕主线拖，44 到 47 话加起来才挪一个线索。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">橙</span><span class="cmt-name">橙子皮</span><span class="cmt-src">雨巷邮差</span></div><p>退信人身份揭出来那话，我第一反应是回去看第 18 话，确实有对照画面，第 14 页。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">路</span><span class="cmt-name">路灯下的影子</span><span class="cmt-src">其他</span></div><p>最近看漫画时间少了，通勤路上只够看一话，月更的反而更适合我这种。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">一</span><span class="cmt-name">一只柚子</span><span class="cmt-src">洗衣店</span></div><p>21 话校服那条线接得太顺了，两条原本无关的客人线，一件衣服就接上了。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">木</span><span class="cmt-name">木木不困</span><span class="cmt-src">钟楼第七层</span></div><p>15 话第五层旧电影院，座位号那段谜题设计得挺扎实，比第 9 话的停摆十分钟还绕。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">海</span><span class="cmt-name">海盐芝士</span><span class="cmt-src">二楼面包房</span></div><p>月更两话太少了，等得心焦。不过每次看都很舒服，睡前看一话刚好。</p></div>
+
+          <div class="cmt"><div class="cmt-head"><span class="avatar">清</span><span class="cmt-name">清风不识字</span><span class="cmt-src">末班车</span></div><p>13 话广播词跟第 3 话那句一模一样，这个补救我认，但规则问题还是没解释清楚。</p></div>
+
+        </div>
+      </section>
+
+      <!-- 09 资讯 -->
+      <section class="sec" id="news">
+        <div class="sec-head"><h2>相关资讯</h2></div>
+        <p class="sec-sub">6 条，围绕连载与作者动态</p>
+        <div class="news-list">
+          <article class="news">
+            <img src="https://picsum.photos/seed/news47/600/400" width="600" height="400" alt="《夜航便利屋》第47话更新页截图" loading="lazy">
+            <div><span class="date">2026年11月8日</span><h3>《夜航便利屋》第 47 话上线，冬季篇首话 24 页</h3><p>更新时间为 09:20，末页附作者番番狗手写短记，提到「旧仓库这条线会在第 52 话前收完」。同日站内更新提醒推送给 4.2 万名订阅读者。</p></div>
+          </article>
+          <article class="news">
+            <img src="https://picsum.photos/seed/newsfangtan/600/400" width="600" height="400" alt="番番狗作者访谈页面" loading="lazy">
+            <div><span class="date">2026年11月6日</span><h3>番番狗访谈公开第 12 话分镜改动细节</h3><p>访谈中作者提到第 12 话原定 29 页，最终压到 22 页，删掉一段便利店后门的过场。该话现版本第 17 页仍可见改动痕迹。</p></div>
+          </article>
+          <article class="news">
+            <img src="https://picsum.photos/seed/newsyuxiang/600/400" width="600" height="400" alt="《雨巷邮差》第24话页面" loading="lazy">
+            <div><span class="date">2026年11月8日</span><h3>《雨巷邮差》第 24 话揭退信人身份</h3><p>该话 29 页，第 14 页给出 2019 年旧档案对照画面。评论区当日新增 310 条，其中 6 成提到第 18 话那封未署名的信。</p></div>
+          </article>
+          <article class="news">
+            <img src="https://picsum.photos/seed/newszhonglou/600/400" width="600" height="400" alt="《钟楼第七层》第五层旧电影院场景" loading="lazy">
+            <div><span class="date">2026年11月7日</span><h3>《钟楼第七层》第五层开放，单话 31 页</h3><p>第 15 话谜题从时间线转向座位号，正文出现 7 个座位编号。作者在末页注明「第六层预计第 19 话进入」。</p></div>
+          </article>
+          <article class="news">
+            <img src="https://picsum.photos/seed/newsmobanche/600/400" width="600" height="400" alt="《末班车后的三站》站台广播场景" loading="lazy">
+            <div><span class="date">2026年11月7日</span><h3>《末班车后的三站》第 13 话用广播词补救规则争议</h3><p>第 13 话 14:00 更新，站台广播词与第 3 话完全一致，共 3 句 27 字。争议仍未完全平息，讨论区当日相关帖 48 条。</p></div>
+          </article>
+          <article class="news">
+            <img src="https://picsum.photos/seed/newsxiajia/600/400" width="600" height="400" alt="站内条目整理公告" loading="lazy">
+            <div><span class="date">2026年11月5日</span><h3>12 部都市奇幻条目补全首话完成度字段</h3><p>本次补全覆盖《洗衣店的午夜客人》《末班车后的三站》等 12 部作品，新增字段含首话页数、第 6 话节奏节点、主线回收间隔三项。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10 榜单 -->
+      <section class="sec" id="rank">
+        <div class="sec-head"><h2>11月8日人气榜</h2></div>
+        <p class="sec-sub">按近 7 日讨论量与追更订阅计</p>
+        <div class="rank">
+          <ol>
+            <li><span class="rk-name">夜航便利屋<small>第 47 话 · 周更两话</small></span><span class="rk-val">9.4</span></li>
+            <li><span class="rk-name">雨巷邮差<small>第 24 话 · 隔周双更</small></span><span class="rk-val">8.9</span></li>
+            <li><span class="rk-name">钟楼第七层<small>第 15 话 · 周更</small></span><span class="rk-val">8.8</span></li>
+            <li><span class="rk-name">旧书店的闭店时间<small>第 11 话 · 不定期</small></span><span class="rk-val">8.7</span></li>
+            <li><span class="rk-name">二楼面包房<small>第 19 话 · 月更两话</small></span><span class="rk-val">8.6</span></li>
+            <li><span class="rk-name">猫町派出所<small>第 33 话 · 周更</small></span><span class="rk-val">8.5</span></li>
+            <li><span class="rk-name">末班车后的三站<small>第 13 话 · 周更</small></span><span class="rk-val">8.4</span></li>
+            <li><span class="rk-name">洗衣店的午夜客人<small>第 21 话 · 周更</small></span><span class="rk-val">8.3</span></li>
+            <li><span class="rk-name">天台气象站<small>第 17 话 · 隔周</small></span><span class="rk-val">8.2</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 11 相关推荐 -->
+      <section class="sec" id="related">
+        <div class="sec-head"><h2>相关推荐：按具体方向找</h2></div>
+        <p class="sec-sub">与精选条目不同角度，偏类型与场景</p>
+        <div class="rel-tags">
+          <a href="/#picks">记忆被旧物带走 <i>设定</i></a>
+          <a href="/#picks">深夜营业场所题材 <i>场景</i></a>
+          <a href="/#picks">单话独立收束 <i>结构</i></a>
+          <a href="/#picks">主线回收间隔 3 话以内 <i>节奏</i></a>
+          <a href="/#picks">《夜航便利屋》同作者作品 <i>作者</i></a>
+          <a href="/#picks">规则写死的解谜短篇 <i>写法</i></a>
+          <a href="/#picks">月更慢节奏治愈 <i>阅读场景</i></a>
+          <a href="/#picks">都市传说与地铁题材 <i>题材</i></a>
+        </div>
+      </section>
+
+      <!-- 12 投稿互动 -->
+      <section class="sec" id="submit">
+        <div class="submit-panel">
+          <div>
+            <h2>投稿：条目档案补全与单话解读</h2>
+            <p>接受两类内容——条目档案补全（首话页数、主线回收间隔、规则首次交代位置）与单话解读（需注明话数与页码）。11月5日那批 12 部条目的补全，有 7 条来自读者投稿。</p>
+          </div>
+          <div class="submit-actions">
+            <a class="btn-primary" href="/#submit">提交条目补全</a>
+            <a class="btn-ghost" href="/#comments">去讨论区</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右辅助栏 -->
+    <aside class="side-col" aria-label="辅助栏">
+      <div class="side-box">
+        <h3>今日更新</h3>
+        <ul class="side-list">
+          <li><a href="/#updates"><span class="num">01</span>夜航便利屋 第 47 话<small>今天 09:20 · 24 页</small></a></li>
+          <li><a href="/#updates"><span class="num">02</span>雨巷邮差 第 24 话<small>今天 08:05 · 29 页</small></a></li>
+          <li><a href="/#updates"><span class="num">03</span>猫町派出所 第 33 话<small>昨天 21:40</small></a></li>
+          <li><a href="/#updates"><span class="num">04</span>钟楼第七层 第 15 话<small>昨天 18:12 · 31 页</small></a></li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h3>热门标签</h3>
+        <div class="side-tags">
+          <a href="/#picks">都市奇幻</a>
+          <a href="/#picks">单元剧</a>
+          <a href="/#picks">记忆设定</a>
+          <a href="/#picks">治愈</a>
+          <a href="/#picks">解谜</a>
+          <a href="/#picks">都市传说</a>
+          <a href="/#picks">群像</a>
+          <a href="/#picks">慢热</a>
+        </div>
+      </div>
+      <div class="side-box">
+        <h3>规则速览</h3>
+        <p class="side-note"><b>主线回收间隔</b>：2—3 话为新鲜区，4—6 话需重复提示，8 话以上易被读成断线。<br><b>例外条件</b>：写在第 10 话之前更稳，临时补易被质疑。</p>
+      </div>
+      <div class="side-box">
+        <h3>最近补全</h3>
+        <ul class="side-list">
+          <li><a href="/#news">12 部条目补全首话完成度<small>11月5日</small></a></li>
+          <li><a href="/#news">番番狗访谈公开分镜改动<small>11月6日</small></a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-text">哔咔庇护所番番狗<small>MANGA SHELTER</small></span>
+        <p class="foot-desc">覆盖 2026 年 8 月至 11 月的在更条目，条目类型含周更、隔周双更、月更与不定期短篇集；更新节奏跟随各作品实际发布日，每日 09:00 与 21:00 两次同步章节状态。</p>
+      </div>
+      <div class="foot-col">
+        <h4>条目</h4>
+        <ul>
+          <li><a href="/#picks">精选条目</a></li>
+          <li><a href="/#updates">章节更新</a></li>
+          <li><a href="/#cats">题材分类</a></li>
+          <li><a href="/#rank">人气榜</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>阅读</h4>
+        <ul>
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">阅读路径</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>互动</h4>
+        <ul>
+          <li><a href="/#submit">投稿补全</a></li>
+          <li><a href="/#comments">读者评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>条目名称、评分、热度与评论为示例内容，用于展示聚合结构；连载状态以 2026 年 11 月 8 日为准。</p>
+      <p>© 2026 哔咔庇护所番番狗 内容档案</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  var doc=document;
+  var stickyH=function(){return doc.querySelector('.sticky-top').offsetHeight||104;};
+
+  /* 汉堡菜单 */
+  var burger=doc.getElementById('hamburger');
+  var nav=doc.getElementById('headNav');
+  var overlay=doc.getElementById('overlay');
+  function closeNav(){
+    nav.classList.remove('open');
+    overlay.classList.remove('show');
+    burger.setAttribute('aria-expanded','false');
+  }
+  function openNav(){
+    nav.classList.add('open');
+    overlay.classList.add('show');
+    burger.setAttribute('aria-expanded','true');
+  }
+  burger.addEventListener('click',function(){
+    if(nav.classList.contains('open')){closeNav();}else{openNav();}
+  });
+  overlay.addEventListener('click',closeNav);
+  doc.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('open')){closeNav();burger.focus();}
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')){closeNav();}
+  });
+
+  /* 锚点滚动偏移 */
+  doc.querySelectorAll('a[href^="/#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').replace('/#','');
+      var target=doc.getElementById(id);
+      if(!target){return;}
+      e.preventDefault();
+      var y=target.getBoundingClientRect().top+window.pageYOffset-stickyH()-14;
+      window.scrollTo({top:y,behavior:'smooth'});
+      history.replaceState(null,'','#'+id);
+    });
+  });
+
+  /* 搜索筛选 */
+  var input=doc.getElementById('searchInput');
+  var grid=doc.getElementById('pickGrid');
+  var empty=doc.getElementById('searchEmpty');
+  if(input&&grid){
+    input.addEventListener('input',function(){
+      var q=input.value.trim().toLowerCase();
+      var cards=grid.querySelectorAll('.card');
+      var shown=0;
+      cards.forEach(function(c){
+        var text=(c.textContent+' '+(c.getAttribute('data-key')||'')).toLowerCase();
+        var hit=!q||text.indexOf(q)>-1;
+        c.style.display=hit?'':'none';
+        if(hit){shown++;}
+      });
+      empty.style.display=shown===0?'block':'none';
+    });
+  }
+
+  /* 回到顶部 */
+  var toTop=doc.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    if(window.pageYOffset>window.innerHeight*0.9){toTop.classList.add('show');}
+    else{toTop.classList.remove('show');}
+  },{passive:true});
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  /* 频道高亮 */
+  var links=Array.prototype.slice.call(doc.querySelectorAll('#channelList a'));
+  var secs=links.map(function(a){return doc.getElementById(a.getAttribute('href').replace('/#',''));}).filter(Boolean);
+  if('IntersectionObserver' in window&&secs.length){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var id=en.target.id;
+          links.forEach(function(a){
+            a.classList.toggle('active',a.getAttribute('href')==='/# '+id||a.getAttribute('href')==='#'+id||a.getAttribute('href')==='/'+'#'+id);
+          });
+        }
+      });
+    },{rootMargin:'-'+ (stickyH()+40) +'px 0px -55% 0px',threshold:0});
+    secs.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"哔咔庇护所番番狗",
+  "inLanguage":"zh-CN",
+  "description":"聚合都市奇幻日常类漫画条目、连载进度与阅读路径的内容门户。"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"番番狗和《夜航便利屋》是什么关系？","acceptedAnswer":{"@type":"Answer","text":"番番狗是《夜航便利屋》的作者署名，也是这批都市奇幻日常作品里被引用最多的一个笔名。署名出现在单行本版权页与每话末页，第 47 话末页仍保留该署名。"}},
+    {"@type":"Question","name":"《雨巷邮差》第 22 话的「退信人」到底是谁？","acceptedAnswer":{"@type":"Answer","text":"第 24 话给出明确指向：退信人是邮局旧档案里 2019 年那位未署名的分拣员，与主角妹妹的去向在同一条时间线上。第 18 话那封没寄出的信是同一人所写，第 24 话第 14 页有对照画面。"}},
+    {"@type":"Question","name":"《末班车后的三站》规则前后矛盾吗？","acceptedAnswer":{"@type":"Answer","text":"矛盾点在例外条件。第 5 话只说明多出三站，没写乘客能否中途下车；第 12 话出现乘客自行下车，属于临时新增规则。第 13 话用站台广播词做了补救，但没解释为什么第 5 话不写。"}},
+    {"@type":"Question","name":"月更的《二楼面包房》值得追吗？","acceptedAnswer":{"@type":"Answer","text":"看阅读目的。它没有主线，靠人物关系推进，第 18 话雨天不打烊把前 17 话的常客出现顺序重串了一遍，属于后置回收。喜欢单话独立、慢节奏的读者适配度高；追主线推进的读者会觉得慢。"}},
+    {"@type":"Question","name":"《钟楼第七层》的「第七层钥匙」什么时候回收？","acceptedAnswer":{"@type":"Answer","text":"截至第 15 话仍未回收，间隔 11 话。第 15 话第五层旧电影院开放时提到过一次钥匙形状的座位号，但没有直接对应。按目前节奏，最晚应在第 18 话前后给明确线索。"}},
+    {"@type":"Question","name":"这几部作品的单话页数大概多少？","acceptedAnswer":{"@type":"Answer","text":"《夜航便利屋》24 页左右，《雨巷邮差》28 到 31 页，《钟楼第七层》30 页上下，《二楼面包房》20 页以内。页数差距会影响单话信息量，隔周双更的作品通常页数更多。"}}
+  ]
+}
+</script>
+</body>
+  </html>
